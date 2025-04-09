@@ -56,14 +56,20 @@ export default {
                 { name: 'HTML', icon: 'mdi:language-html5' },
                 { name: 'CSS', icon: 'mdi:language-css3' },
                 { name: 'JavaScript', icon: 'mdi:language-javascript' },
+                { name: 'TypeScript', icon: 'mdi:language-typescript' },
                 { name: 'Java', icon: 'mdi:language-java' },
                 { name: 'Git', icon: 'mdi:git' },
                 { name: 'GitHub', icon: 'mdi:github' },
                 { name: 'MySQL', icon: 'mdi:database' },
+                { name: 'REST', icon: 'mdi:api' },
+                { name: 'GraphQL', icon: 'mdi:graphql' },
+                { name: 'Spring', icon: 'mdi:leaf-circle' },
+                { name: 'Laravel', icon: 'mdi:laravel' },
                 { name: 'Vue.js', icon: 'mdi:vuejs' },
-                { name: 'React', icon: 'mdi:react' },
-                { name: 'Node.js', icon: 'mdi:nodejs' },
-                { name: 'Docker', icon: 'mdi:docker' }
+                { name: 'Nuxt.js', icon: 'mdi:nuxt' },
+                { name: 'Tailwind', icon: 'mdi:tailwind' },
+                { name: 'Docker', icon: 'mdi:docker' },
+                { name: 'Kubernetes', icon: 'mdi:kubernetes' },
             ]
         }
     },
