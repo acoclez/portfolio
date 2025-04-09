@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col bg-black">
     <TheHeader />
-    <main class="flex-grow">
+    <main class="flex-grow pt-24">
       <router-view />
     </main>
     <TheFooter />
@@ -20,3 +20,18 @@ export default {
   }
 }
 </script>
+
+<style>
+/* Remove any background color on body or html */
+body,
+html {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+/* Override any background colors on the header */
+header {
+  background-color: transparent !important;
+}
+</style>
