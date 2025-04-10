@@ -10,14 +10,14 @@
 
             <h2 class="text-3xl font-bold mb-4">Prêt à me faire confiance pour votre projet ?</h2>
             <p class="text-xl text-gray-400 mb-8">
-                Contactez moi dès maintenant pour discuter de vos objectifs.
+                Retrouvez mes travaux et projets sur GitHub.
             </p>
             <div class="w-24 h-1 mx-auto mb-8 bg-yellow-400"></div>
-            <router-link to="/contact"
+            <a href="https://github.com/" target="_blank"
                 class="inline-flex items-center px-8 py-4 rounded-none bg-yellow-400 hover:bg-yellow-300 text-black font-bold transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                <Icon icon="mdi:hand-wave" class="w-5 h-5 mr-2" />
-                Me Contacter
-            </router-link>
+                <Icon icon="mdi:github" class="w-5 h-5 mr-2" />
+                Voir sur GitHub
+            </a>
         </div>
     </section>
 </template>

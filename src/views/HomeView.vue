@@ -1,4 +1,4 @@
-<!-- src/views/HomeView.vue (Refactored) -->
+<!-- src/views/HomeView.vue -->
 <template>
   <div class="bg-black text-white">
     <!-- Background Grid - fixed position to cover entire page -->
@@ -35,11 +35,9 @@ export default {
 </script>
 
 <style>
-/* Header and footer with lighter color */
 header,
 footer {
   background-color: #1a1a1a !important;
-  /* Slightly lighter gray */
   z-index: 10;
   position: relative;
   color: #ffffff !important;

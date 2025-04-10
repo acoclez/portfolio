@@ -30,8 +30,9 @@ export default {
         { name: 'Accueil', path: '/' },
         { name: 'A propos', path: '/about' },
         { name: 'Projets', path: '/projects' },
-        { name: 'Veille', path: '/veille' },
-        { name: 'Contact', path: '/contact' }
+        { name: 'Veille', path: '/veille' }
+        // Contact link removed
+        // { name: 'Contact', path: '/contact' }
       ]
     }
   },

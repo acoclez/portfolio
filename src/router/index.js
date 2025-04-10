@@ -1,3 +1,4 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -33,6 +34,7 @@ const routes = [
       title: 'Antoine Coclez — Veille'
     }
   },
+  /*
   {
     path: '/contact',
     name: 'contact',
@@ -41,6 +43,7 @@ const routes = [
       title: 'Antoine Coclez — Contact'
     }
   }
+  */
 ]
 
 const router = createRouter({
