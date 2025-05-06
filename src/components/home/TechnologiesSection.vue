@@ -16,7 +16,6 @@
                 Les compétences que je possède et utilise régulièrement
             </p>
 
-            <!-- Compétences grille optimisée -->
             <div ref="techGrid"
                 class="grid grid-cols-2 md:grid-cols-3 gap-4 transform translate-y-20 opacity-0 max-w-3xl mx-auto">
                 <div v-for="tech in technologies" :key="tech.name"
