@@ -3,13 +3,17 @@
     <section ref="techSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
         <!-- Decorative element -->
         <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent"></div>
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto relative">
+            <!-- L top left -->
+            <div class="absolute top-0 left-0 l-decoration"></div>
+
+            <!-- L bottom right reversed -->
+            <div class="absolute bottom-0 right-0 l-decoration-reversed"></div>
+
             <div class="relative flex flex-col items-center mb-14">
                 <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
                     Compétences
                 </h2>
-                <!-- Section Title Decoration -->
-                <div class="section-title-bar"></div>
             </div>
             <p ref="techDesc"
                 class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto transform translate-y-10 opacity-0">
@@ -131,34 +135,56 @@ export default {
     box-shadow: 0 10px 25px -5px rgba(247, 222, 61, 0.1);
 }
 
-/* Section Title Decoration */
-.section-title-bar {
-    width: 80px;
+/* L decorations for the corners */
+.l-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+.l-decoration::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background-color: #F7DE3D;
+    left: 0;
+    top: 0;
+}
+
+.l-decoration::after {
+    content: '';
+    position: absolute;
+    width: 100%;
     height: 3px;
     background-color: #F7DE3D;
-    position: relative;
-    margin-top: 10px;
+    left: 0;
+    top: 0;
 }
 
-.section-title-bar::before {
-    content: '';
+.l-decoration-reversed {
     position: absolute;
-    left: -10px;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    border-left: 3px solid #F7DE3D;
-    border-top: 3px solid #F7DE3D;
+    width: 60px;
+    height: 60px;
 }
 
-.section-title-bar::after {
+.l-decoration-reversed::before {
     content: '';
     position: absolute;
-    right: -10px;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    border-right: 3px solid #F7DE3D;
-    border-top: 3px solid #F7DE3D;
+    width: 3px;
+    height: 100%;
+    background-color: #F7DE3D;
+    right: 0;
+    bottom: 0;
+}
+
+.l-decoration-reversed::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #F7DE3D;
+    right: 0;
+    bottom: 0;
 }
 </style>

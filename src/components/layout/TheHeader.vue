@@ -31,7 +31,6 @@ export default {
         { name: 'A propos', path: '/about' },
         { name: 'Projets', path: '/projects' },
         { name: 'Veille', path: '/veille' }
-        // Contact link removed
         // { name: 'Contact', path: '/contact' }
       ]
     }

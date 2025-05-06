@@ -8,7 +8,8 @@
             <div class="absolute bottom-20 right-20 md:bottom-24 md:right-24 l-decoration-reversed"></div>
 
             <h1 ref="heroTitle" class="text-5xl md:text-7xl font-bold mb-6 text-center opacity-0">Antoine Coclez</h1>
-            <p ref="heroSubtitle" class="text-2xl md:text-3xl text-gray-400 mb-10 text-center opacity-0">Développeur Web</p>
+            <p ref="heroSubtitle" class="text-2xl md:text-3xl text-gray-400 mb-10 text-center opacity-0">
+                Développeur Web</p>
 
             <!-- Social Links -->
             <div ref="socialLinks" class="flex justify-center space-x-6 mb-12 opacity-0">

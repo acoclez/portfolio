@@ -35,25 +35,20 @@ export default {
 </script>
 
 <style>
-header,
-footer {
-  background-color: #1a1a1a !important;
+header {
+  background-color: transparent !important;
   z-index: 10;
   position: relative;
   color: #ffffff !important;
-  /* White text */
 }
 
 /* Ensure links in header are visible */
-header a,
-footer a {
+header a {
   color: #ffffff !important;
   transition: color 0.3s ease;
 }
 
 header a:hover,
-footer a:hover,
-header a.router-link-active,
-footer a.router-link-active {
+header a.router-link-active {
   color: #F7DE3D !important;
 }</style>

@@ -1,11 +1,16 @@
 <!-- src/components/home/VeillePreviewSection.vue -->
 <template>
     <section ref="veilleSection" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900 relative">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto relative">
+            <!-- L top left -->
+            <div class="absolute top-0 left-0 l-decoration"></div>
+
+            <!-- L bottom right reversed -->
+            <div class="absolute bottom-0 right-0 l-decoration-reversed"></div>
+
             <div class="relative flex flex-col items-center mb-14">
                 <h2 ref="veilleTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">Veille
                 </h2>
-                <div class="section-title-bar"></div>
             </div>
 
             <p ref="veilleDesc"
@@ -30,8 +35,6 @@
                             <div class="font-medium">Spring Boot 3.0 is now GA</div>
                         </a>
                     </div>
-                    <!-- L top right reversed -->
-                    <div class="absolute top-0 right-0 l-decoration-small-reversed top-right"></div>
                 </div>
 
                 <div
@@ -50,8 +53,6 @@
                             <div class="font-medium">Spring Modulith 1.0 RC1 released</div>
                         </a>
                     </div>
-                    <!-- L top right reversed -->
-                    <div class="absolute top-0 right-0 l-decoration-small-reversed top-right"></div>
                 </div>
             </div>
 
@@ -149,33 +150,4 @@ export default {
     top: 0;
 }
 
-/* Section Title Decoration */
-.section-title-bar {
-    width: 80px;
-    height: 3px;
-    background-color: #F7DE3D;
-    position: relative;
-    margin-top: 10px;
-}
-
-.section-title-bar::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    border-left: 3px solid #F7DE3D;
-    border-top: 3px solid #F7DE3D;
-}
-
-.section-title-bar::after {
-    content: '';
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    border-right: 3px solid #F7DE3D;
-    border-top: 3px solid #F7DE3D;
-}</style>
+</style>
