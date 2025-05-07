@@ -17,7 +17,6 @@
         <p ref="pageDesc" class="text-xl text-gray-400 max-w-2xl mx-auto transform translate-y-10 opacity-0">
           Là où je partage mes connaissances sur mon sujet de veille, Spring.
         </p>
-        <div class="section-title-bar mx-auto"></div>
       </div>
     </section>
 
@@ -27,9 +26,9 @@
         <!-- Spring Blog Feed -->
         <div ref="feedCard1" class="transform translate-y-20 opacity-0">
           <div class="bg-gray-900 rounded-none overflow-hidden shadow-xl p-6 border-t-4 border-yellow-400 relative">
-            <!-- L top right decoration -->
-            <div class="absolute top-0 right-0 l-decoration-small-reversed top-right"></div>
-            
+            <!-- L bottom right reversed -->
+            <div class="absolute bottom-0 right-0 l-decoration-reversed"></div>
+
             <h2 class="text-2xl font-bold mb-6 flex items-center">
               <Icon icon="mdi:leaf" class="mr-2 text-yellow-400" width="24" />
               Spring Blog
@@ -59,19 +58,19 @@
               </div>
             </div>
 
-            <a href="https://feeder.co/discover/3bf86e440d/spring-io-blog" target="_blank" 
+            <a href="https://feeder.co/discover/3bf86e440d/spring-io-blog" target="_blank"
               class="inline-block mt-6 text-gray-400 hover:text-yellow-400 transition">
               Voir sur Feeder →
             </a>
           </div>
         </div>
-        
+
         <!-- Spring Engineering Feed -->
         <div ref="feedCard2" class="transform translate-y-20 opacity-0">
           <div class="bg-gray-900 rounded-none overflow-hidden shadow-xl p-6 border-t-4 border-yellow-400 relative">
-            <!-- L top right decoration -->
-            <div class="absolute top-0 right-0 l-decoration-small-reversed top-right"></div>
-            
+            <!-- L bottom right reversed -->
+            <div class="absolute bottom-0 right-0 l-decoration-reversed"></div>
+
             <h2 class="text-2xl font-bold mb-6 flex items-center">
               <Icon icon="mdi:code-braces" class="mr-2 text-yellow-400" width="24" />
               Spring Engineering
@@ -101,23 +100,20 @@
               </div>
             </div>
 
-            <a href="https://feeder.co/discover/0856437d81/spring-io-blog-category-engineering" target="_blank" 
+            <a href="https://feeder.co/discover/0856437d81/spring-io-blog-category-engineering" target="_blank"
               class="inline-block mt-6 text-gray-400 hover:text-yellow-400 transition">
               Voir sur Feeder →
             </a>
           </div>
         </div>
       </div>
-      
+
       <!-- Spring Framework Overview -->
       <div ref="springOverview" class="mt-16 transform translate-y-20 opacity-0">
         <div class="bg-gray-900 rounded-none overflow-hidden shadow-2xl p-8 border-l-4 border-yellow-400 relative">
-          <!-- L top left -->
-          <div class="absolute top-0 left-0 l-decoration-small"></div>
-
           <!-- L bottom right reversed -->
           <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
-          
+
           <h2 class="text-3xl font-bold mb-6">Ma veille technologique sur Spring</h2>
 
           <div class="prose prose-invert max-w-none">
@@ -293,14 +289,14 @@ export default {
         // Note: Ceci ne fonctionnera pas directement en raison des restrictions CORS
         // Il faut utiliser un proxy côté serveur ou une fonction serverless
         // Simulation pour l'exemple :
-        
+
         // Dans un cas réel, vous feriez quelque chose comme :
         // const response = await fetch(`/api/rss-proxy?url=${encodeURIComponent(url)}`);
         // const data = await response.json();
-        
+
         // Simulons des données pour l'exemple
         await new Promise(resolve => setTimeout(resolve, 1000));
-        
+
         // Données simulées
         const mockItems = [
           {
@@ -332,7 +328,7 @@ export default {
             description: 'We are happy to announce the first release candidate of Spring Modulith 1.0.'
           }
         ];
-        
+
         this.feeds[feedType] = mockItems;
       } catch (error) {
         this.error[feedType] = 'Erreur lors du chargement des articles. Veuillez réessayer ultérieurement.';
@@ -370,9 +366,11 @@ export default {
   0% {
     border-color: #F7DE3D;
   }
+
   50% {
     border-color: #FDE68A;
   }
+
   100% {
     border-color: #F7DE3D;
   }

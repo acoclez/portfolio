@@ -22,6 +22,9 @@
                 <div
                     class="bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
                     <div class="flex flex-col md:flex-row relative">
+                        <!-- L bottom right reversed -->
+                        <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
+
                         <div class="md:w-2/5 h-64 overflow-hidden">
                             <img src="/assets/img/projects/exemple.png" alt="Project Thumbnail"
                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
@@ -60,6 +63,8 @@
                 <div
                     class="bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
                     <div class="flex flex-col md:flex-row relative">
+                        <!-- L bottom right reversed -->
+                        <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
                         <div class="md:w-2/5 h-64 overflow-hidden">
                             <img src="/assets/img/projects/exemple.png" alt="Project Thumbnail"
                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />

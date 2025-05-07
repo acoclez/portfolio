@@ -8,10 +8,10 @@
     <section ref="heroSection" class="py-24 px-4 text-center relative">
       <div class="max-w-4xl mx-auto">
         <!-- L top left -->
-        <div class="absolute top-0 left-0 l-decoration"></div>
+        <div class="absolute top-20 left-20 md:top-25 md:left-24 l-decoration"></div>
 
         <!-- L bottom right reversed -->
-        <div class="absolute bottom-0 right-0 l-decoration-reversed"></div>
+        <div class="absolute bottom-20 right-20 md:bottom-24 md:right-24 l-decoration-reversed"></div>
 
         <h1 ref="pageTitle" class="text-4xl md:text-5xl font-bold mb-4 transform translate-y-10 opacity-0">
           À propos de moi
@@ -19,7 +19,6 @@
         <p ref="pageDesc" class="text-xl text-gray-400 max-w-2xl mx-auto transform translate-y-10 opacity-0">
           Vous voulez en savoir plus sur moi? Vous êtes au bon endroit
         </p>
-        <div class="section-title-bar mx-auto"></div>
       </div>
     </section>
 
@@ -34,8 +33,8 @@
               <p>
                 Bonjour, je suis Antoine Coclez, jeune développeur informatique
                 de 20 ans basé à Bordeaux. Avec deux ans d'expérience en tant
-                que développeur logiciel, je suis motivé à travailler sur
-                des solutions logicielles dynamiques et innovantes.
+                que développeur web, je suis motivé à travailler sur
+                des solutions web dynamiques et innovantes.
               </p>
               <p>
                 Explorez mon portfolio pour mieux me connaître et n'hésitez
@@ -61,8 +60,6 @@
           <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
             Compétences
           </h2>
-          <!-- Section Title Decoration -->
-          <div class="section-title-bar"></div>
         </div>
 
         <p ref="techDesc"
@@ -71,22 +68,22 @@
         </p>
 
         <div ref="techGrid"
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 transform translate-y-20 opacity-0">
+          class="grid grid-cols-2 md:grid-cols-3 gap-4 transform translate-y-20 opacity-0 max-w-3xl mx-auto">
           <div v-for="tech in technologies" :key="tech.name"
-            class="tech-item bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all hover:scale-105 hover:bg-gray-700 border-t-2 border-transparent hover:border-yellow-400">
-            <Icon :icon="tech.icon" class="w-16 h-16 mb-4 text-yellow-400" />
-            <span class="font-medium">{{ tech.name }}</span>
+            class="tech-item bg-gray-800 py-2 px-3 flex items-center transition-all duration-300 border-l-2 border-transparent hover:border-yellow-400 transform hover:-translate-y-1 hover:shadow-lg">
+            <Icon :icon="tech.icon" width="24" height="24" class="mr-3 flex-shrink-0 text-yellow-400" />
+            <span class="font-medium text-sm whitespace-nowrap">{{ tech.name }}</span>
           </div>
         </div>
 
         <!-- Skills Summary PDF viewer -->
         <div ref="skillsSummary" class="mt-16 transform translate-y-20 opacity-0">
           <h2 class="text-3xl font-bold text-center mb-10">Tableau de synthèse de mes compétences</h2>
-          <div class="w-full h-screen bg-gray-800 rounded-lg overflow-hidden border-l-4 border-yellow-400 shadow-2xl">
-            <object class="w-full h-full" data="/assets/synthese_competences.pdf" type="application/pdf">
+          <div class="w-full h-screen bg-gray-800 overflow-hidden border-l-4 border-yellow-400 shadow-2xl">
+            <object class="w-full h-full" data="/assets/tableau_synthese.pdf" type="application/pdf">
               <p class="p-8 text-center">
                 Votre navigateur ne supporte pas l'affichage des PDF.
-                <a href="/assets/synthese_competences.pdf" class="text-blue-400 underline" target="_blank">
+                <a href="/assets/tableau_synthese.pdf" class="text-blue-400 underline" target="_blank">
                   Cliquez ici pour télécharger
                 </a>
               </p>
@@ -124,14 +121,20 @@ export default {
         { name: 'HTML', icon: 'mdi:language-html5' },
         { name: 'CSS', icon: 'mdi:language-css3' },
         { name: 'JavaScript', icon: 'mdi:language-javascript' },
+        { name: 'TypeScript', icon: 'mdi:language-typescript' },
         { name: 'Java', icon: 'mdi:language-java' },
         { name: 'Git', icon: 'mdi:git' },
         { name: 'GitHub', icon: 'mdi:github' },
         { name: 'MySQL', icon: 'mdi:database' },
-        { name: 'Vue.js', icon: 'mdi:vuejs' },
-        { name: 'Spring', icon: 'mdi:leaf-circle' },
+        { name: 'REST', icon: 'mdi:api' },
         { name: 'GraphQL', icon: 'mdi:graphql' },
-        { name: 'Docker', icon: 'mdi:docker' }
+        { name: 'Spring', icon: 'mdi:leaf-circle' },
+        { name: 'Laravel', icon: 'mdi:laravel' },
+        { name: 'Vue.js', icon: 'mdi:vuejs' },
+        { name: 'Nuxt.js', icon: 'mdi:nuxt' },
+        { name: 'Tailwind', icon: 'mdi:tailwind' },
+        { name: 'Docker', icon: 'mdi:docker' },
+        { name: 'Kubernetes', icon: 'mdi:kubernetes' },
       ]
     }
   },
@@ -251,4 +254,5 @@ export default {
   100% {
     border-color: #F7DE3D;
   }
-}</style>
+}
+</style>

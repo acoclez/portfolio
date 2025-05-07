@@ -22,14 +22,24 @@ export default {
     data() {
         return {
             technologies: [
-                { name: 'PHP', icon: '/assets/img/techs/php.svg' },
-                { name: 'HTML', icon: '/assets/img/techs/html.svg' },
-                { name: 'CSS', icon: '/assets/img/techs/css.svg' },
-                { name: 'JavaScript', icon: '/assets/img/techs/javascript.svg' },
-                { name: 'Java', icon: '/assets/img/techs/java.svg' },
-                { name: 'Git', icon: '/assets/img/techs/git.svg' },
-                { name: 'GitHub', icon: '/assets/img/techs/github.svg' },
-                { name: 'MySQL', icon: '/assets/img/techs/mysql.svg' }
+                { name: 'PHP', icon: 'mdi:language-php' },
+                { name: 'HTML', icon: 'mdi:language-html5' },
+                { name: 'CSS', icon: 'mdi:language-css3' },
+                { name: 'JavaScript', icon: 'mdi:language-javascript' },
+                { name: 'TypeScript', icon: 'mdi:language-typescript' },
+                { name: 'Java', icon: 'mdi:language-java' },
+                { name: 'Git', icon: 'mdi:git' },
+                { name: 'GitHub', icon: 'mdi:github' },
+                { name: 'MySQL', icon: 'mdi:database' },
+                { name: 'REST', icon: 'mdi:api' },
+                { name: 'GraphQL', icon: 'mdi:graphql' },
+                { name: 'Spring', icon: 'mdi:leaf-circle' },
+                { name: 'Laravel', icon: 'mdi:laravel' },
+                { name: 'Vue.js', icon: 'mdi:vuejs' },
+                { name: 'Nuxt.js', icon: 'mdi:nuxt' },
+                { name: 'Tailwind', icon: 'mdi:tailwind' },
+                { name: 'Docker', icon: 'mdi:docker' },
+                { name: 'Kubernetes', icon: 'mdi:kubernetes' },
             ]
         }
     }

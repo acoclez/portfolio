@@ -7,10 +7,9 @@
           <p class="text-gray-300 leading-relaxed">
             Bonjour, je suis Antoine Coclez, jeune développeur informatique
             de 20 ans basé à Bordeaux. Avec deux ans d'expérience en tant
-            que développeur logiciel, je suis motivé à travailler sur
+            que développeur web, je suis motivé à travailler sur
             des solutions logicielles dynamiques et innovantes.
-            Explorez mon portfolio pour mieux me connaître et n'hésitez
-            pas à me contacter afin de discuter ensemble d'éventuelles collaborations.
+            Explorez mon portfolio pour mieux me connaître.
           </p>
         </div>
 
@@ -37,7 +36,7 @@
           </div>
           <div>
             <ul class="space-y-2">
-              <li><a class="text-gray-300 hover:text-yellow-400 transition-standard" href="/assets/cv.pdf"
+              <li><a class="text-gray-300 hover:text-yellow-400 transition-standard" href="/assets/CV_AC.pdf"
                   target="_blank">CV</a></li>
             </ul>
           </div>

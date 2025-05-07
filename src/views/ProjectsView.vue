@@ -17,7 +17,6 @@
         <p ref="pageDesc" class="text-xl text-gray-400 max-w-2xl mx-auto transform translate-y-10 opacity-0">
           Projets sur lesquels j'ai pu collaborer
         </p>
-        <div class="section-title-bar mx-auto"></div>
       </div>
     </section>
 
@@ -27,9 +26,6 @@
         <div v-for="(project, index) in projects" :key="index" ref="projectCards"
           class="opacity-0 transform translate-y-20 bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
           <div class="flex flex-col md:flex-row relative">
-            <!-- L top left -->
-            <div class="absolute top-0 left-0 l-decoration-small"></div>
-
             <!-- L bottom right reversed -->
             <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
 
@@ -50,11 +46,13 @@
               </div>
 
               <div class="flex gap-4">
-                <a v-if="project.demo" :href="project.demo" target="_blank"
-                  class="inline-block px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition transform hover:-translate-y-1">
-                  <Icon icon="mdi:web" class="inline-block mr-1" width="18" />
-                  Voir le site
-                </a>
+                <!--
+                  <a v-if="project.demo" :href="project.demo" target="_blank"
+                    class="inline-block px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition transform hover:-translate-y-1">
+                    <Icon icon="mdi:web" class="inline-block mr-1" width="18" />
+                    Voir le site
+                  </a>
+                -->
                 <a v-if="project.github" :href="project.github" target="_blank"
                   class="inline-block px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none transition border-b-2 border-yellow-400 transform hover:-translate-y-1">
                   <Icon icon="mdi:github" class="inline-block mr-1" width="18" />
@@ -90,29 +88,21 @@ export default {
     return {
       projects: [
         {
-          title: 'Portfolio',
-          description: 'Création de mon portfolio où l\'on retrouve mes compétences, ma veille, mes projets...',
+          title: 'VLIB',
+          description: 'Développement pour une entreprise de VLIB d\'une application mobile pour la gestion de leur parc',
           thumbnail: '/assets/img/projects/portfo.png',
-          technologies: ['Vue.js', 'Tailwind CSS', 'JavaScript', 'GSAP'],
+          technologies: ['Android Studio', 'Java', 'PHP', 'MySQL'],
           demo: '/',
           github: 'https://github.com/username/portfolio'
         },
         {
-          title: 'Gestionnaire de bibliothèque SIO',
-          description: 'Développement d\'un site de gestion de bibliothèque avec Spring Boot et Angular',
+          title: 'M2L',
+          description: 'Développement d\'un site pour la maison des ligues de Lorraine',
           thumbnail: '/assets/img/projects/exemple.png',
-          technologies: ['Spring Boot', 'Angular', 'MySQL', 'Java'],
+          technologies: ['PHP', 'MySQL'],
           demo: 'https://example.com',
-          github: 'https://github.com/username/library-manager'
+          github: 'https://github.com/w3bz-0/AP-2.5-M2L'
         },
-        {
-          title: 'Appli de Gestion de Tâches',
-          description: 'Application de gestion de tâches et de projets collaboratifs avec fonctionnalités temps réel',
-          thumbnail: '/assets/img/projects/exemple.png',
-          technologies: ['React', 'Node.js', 'MongoDB', 'WebSockets'],
-          demo: 'https://example.com/todo',
-          github: 'https://github.com/username/task-manager'
-        }
       ]
     }
   },
