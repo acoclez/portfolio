@@ -13,7 +13,8 @@
 
             <!-- Social Links -->
             <div ref="socialLinks" class="flex justify-center space-x-6 mb-12 opacity-0">
-                <a href="https://github.com/" target="_blank" class="transform transition hover:scale-110 text-yellow-400">
+                <a href="https://github.com/acoclez" target="_blank"
+                    class="transform transition hover:scale-110 text-yellow-400">
                     <Icon icon="mdi:github" width="40" height="40" />
                 </a>
                 <a href="https://gitlab.com/" target="_blank" class="transform transition hover:scale-110 text-yellow-400">

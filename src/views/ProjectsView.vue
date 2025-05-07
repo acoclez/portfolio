@@ -93,7 +93,7 @@ export default {
           thumbnail: '/assets/img/projects/portfo.png',
           technologies: ['Android Studio', 'Java', 'PHP', 'MySQL'],
           demo: '/',
-          github: 'https://github.com/username/portfolio'
+          github: 'https://github.com/acoclez/VLIB'
         },
         {
           title: 'M2L',
@@ -101,7 +101,7 @@ export default {
           thumbnail: '/assets/img/projects/exemple.png',
           technologies: ['PHP', 'MySQL'],
           demo: 'https://example.com',
-          github: 'https://github.com/w3bz-0/AP-2.5-M2L'
+          github: 'https://github.com/acoclez/AP-2.5-M2L'
         },
       ]
     }
