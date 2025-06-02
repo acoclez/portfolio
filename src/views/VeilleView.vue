@@ -27,7 +27,6 @@
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
           Découvrez mes réflexions sur les dernières évolutions de l'écosystème Spring
         </p>
-        <div class="section-title-bar mx-auto"></div>
       </div>
 
       <div class="space-y-12">
