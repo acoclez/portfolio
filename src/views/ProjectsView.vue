@@ -90,7 +90,7 @@ export default {
         {
           title: 'VLIB',
           description: 'Développement pour une entreprise de VLIB d\'une application mobile pour la gestion de leur parc',
-          thumbnail: '/assets/img/projects/portfo.png',
+          thumbnail: '/assets/img/VLIB.png',
           technologies: ['Android Studio', 'Java', 'PHP', 'MySQL'],
           demo: '/',
           github: 'https://github.com/acoclez/VLIB'
@@ -98,10 +98,17 @@ export default {
         {
           title: 'M2L',
           description: 'Développement d\'un site pour la maison des ligues de Lorraine',
-          thumbnail: '/assets/img/projects/exemple.png',
+          thumbnail: '/assets/img/M2L.png',
           technologies: ['PHP', 'MySQL'],
-          demo: 'https://example.com',
+          demo: '/',
           github: 'https://github.com/acoclez/AP-2.5-M2L'
+        },
+        {
+          title: 'Agri+',
+          description: 'Outil de gestion poussé pour les agriculteurs',
+          thumbnail: '/assets/img/AGRIPLUS.png',
+          technologies: ['Laravel' ,'Vue', 'MySQL', 'Ionic'],
+          demo: '/',
         },
       ]
     }

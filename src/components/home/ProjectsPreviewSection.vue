@@ -26,7 +26,7 @@
                         <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
 
                         <div class="md:w-2/5 h-64 overflow-hidden">
-                            <img src="/assets/img/projects/exemple.png" alt="Project Thumbnail"
+                            <img src="/assets/img/AGRIPLUS.png" alt="Project Thumbnail"
                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                         </div>
                         <div class="md:w-3/5 p-8">
@@ -66,7 +66,7 @@
                         <!-- L bottom right reversed -->
                         <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
                         <div class="md:w-2/5 h-64 overflow-hidden">
-                            <img src="/assets/img/projects/exemple.png" alt="Project Thumbnail"
+                            <img src="/assets/img/VLIB.png" alt="Project Thumbnail"
                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                         </div>
                         <div class="md:w-3/5 p-8">
