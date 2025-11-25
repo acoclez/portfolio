@@ -42,8 +42,16 @@ const routes = [
     meta: {
       title: 'Antoine Coclez — Contact'
     }
-  }
+  },
   */
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import(/* webpackChunkName: "404" */ '../views/NotFoundView.vue'),
+    meta: {
+      title: '404 - Page non trouvée'
+    }
+  }
 ]
 
 const router = createRouter({

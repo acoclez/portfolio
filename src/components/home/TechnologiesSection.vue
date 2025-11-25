@@ -1,4 +1,4 @@
-<!-- src/components/home/TechnologiesSection.vue -->
+<!-- src/components/home/TechnologiesSection.vue - REFACTORED -->
 <template>
     <section ref="techSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
         <!-- Decorative element -->
@@ -60,19 +60,17 @@ export default {
                 { name: 'CSS', icon: 'mdi:language-css3' },
                 { name: 'JavaScript', icon: 'mdi:language-javascript' },
                 { name: 'TypeScript', icon: 'mdi:language-typescript' },
-                { name: 'Java', icon: 'mdi:language-java' },
                 { name: 'Git', icon: 'mdi:git' },
                 { name: 'GitHub', icon: 'mdi:github' },
                 { name: 'MySQL', icon: 'mdi:database' },
                 { name: 'REST', icon: 'mdi:api' },
-                { name: 'GraphQL', icon: 'mdi:graphql' },
-                { name: 'Spring', icon: 'mdi:leaf-circle' },
+                { name: 'Symfony', icon: 'mdi:symfony' },
                 { name: 'Laravel', icon: 'mdi:laravel' },
                 { name: 'Vue.js', icon: 'mdi:vuejs' },
                 { name: 'Nuxt.js', icon: 'mdi:nuxt' },
                 { name: 'Tailwind', icon: 'mdi:tailwind' },
                 { name: 'Docker', icon: 'mdi:docker' },
-                { name: 'Kubernetes', icon: 'mdi:kubernetes' },
+                { name: 'Linux', icon: 'mdi:linux' },
             ]
         }
     },
@@ -127,7 +125,6 @@ export default {
 .tech-item {
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     min-width: 0;
-    /* Pour garantir que le texte peut être coupé si nécessaire */
 }
 
 .tech-item:hover {
@@ -135,56 +132,5 @@ export default {
     box-shadow: 0 10px 25px -5px rgba(247, 222, 61, 0.1);
 }
 
-/* L decorations for the corners */
-.l-decoration {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-}
-
-.l-decoration::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-}
-
-.l-decoration::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-}
-
-.l-decoration-reversed {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-}
-
-.l-decoration-reversed::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-reversed::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
+/* L-decoration styles now come from home-styles.css */
 </style>

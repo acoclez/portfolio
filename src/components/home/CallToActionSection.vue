@@ -1,4 +1,4 @@
-<!-- src/components/home/CallToActionSection.vue -->
+<!-- src/components/home/CallToActionSection.vue - REFACTORED -->
 <template>
     <section ref="ctaSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
         <div class="max-w-4xl mx-auto text-center transform translate-y-10 opacity-0 relative">
@@ -50,56 +50,6 @@ export default {
 </script>
   
 <style scoped>
-/* L decoration styles */
-.l-decoration {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-}
-
-.l-decoration::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-}
-
-.l-decoration::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-}
-
-.l-decoration-reversed {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-}
-
-.l-decoration-reversed::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-reversed::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
+/* All L-decoration styles now come from home-styles.css */
+/* No component-specific styles needed */
 </style>

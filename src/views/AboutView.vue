@@ -1,4 +1,4 @@
-<!-- src/views/AboutView.vue -->
+<!-- src/views/AboutView.vue - PHASE 2 REFACTORED -->
 <template>
   <div class="min-h-screen bg-black text-white relative">
     <!-- Background Grid - fixed position -->
@@ -27,22 +27,17 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- About Text -->
         <div class="md:col-span-2">
-          <div ref="aboutContent" class="transform translate-y-20 opacity-0 relative">
-            <h2 class="text-3xl font-bold mb-6">Antoine Coclez</h2>
-            <div class="text-gray-300 space-y-4">
-              <p>
-                Bonjour, je suis Antoine Coclez, jeune développeur informatique
-                de 20 ans basé à Bordeaux. Avec deux ans d'expérience en tant
-                que développeur web, je suis motivé à travailler sur
-                des solutions web dynamiques et innovantes.
-              </p>
-              <p>
-                Explorez mon portfolio pour mieux me connaître et n'hésitez
-                pas à me contacter afin de discuter ensemble d'éventuelles collaborations.
-              </p>
-            </div>
-            <!-- L bottom right -->
-            <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>
+          <div ref="aboutContent" class="transform translate-y-20 opacity-0">
+            <BaseCard 
+              border="none"
+              :show-decoration="true"
+              :decorations="['bottom-right']"
+              decoration-size="small"
+              variant="transparent"
+              padding="p-0"
+            >
+              <AboutIntro />
+            </BaseCard>
           </div>
         </div>
 
@@ -75,21 +70,6 @@
             <span class="font-medium text-sm whitespace-nowrap">{{ tech.name }}</span>
           </div>
         </div>
-
-        <!-- Skills Summary PDF viewer -->
-        <div ref="skillsSummary" class="mt-16 transform translate-y-20 opacity-0">
-          <h2 class="text-3xl font-bold text-center mb-10">Tableau de synthèse de mes compétences</h2>
-          <div class="w-full h-screen bg-gray-800 overflow-hidden border-l-4 border-yellow-400 shadow-2xl">
-            <object class="w-full h-full" data="/assets/tableau_synthese.pdf" type="application/pdf">
-              <p class="p-8 text-center">
-                Votre navigateur ne supporte pas l'affichage des PDF.
-                <a href="/assets/tableau_synthese.pdf" class="text-blue-400 underline" target="_blank">
-                  Cliquez ici pour télécharger
-                </a>
-              </p>
-            </object>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -99,20 +79,37 @@
 </template>
 
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
+import { useAnimations } from '@/composables/useAnimations';
+import BaseCard from '@/components/shared/BaseCard.vue';
+import AboutIntro from '@/components/about/AboutIntro.vue';
 import SocialLinks from '@/components/contact/SocialLinks.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'AboutView',
   components: {
     Icon,
+    BaseCard,
+    AboutIntro,
     SocialLinks,
     CallToActionSection
+  },
+  setup() {
+    // Use animations composable
+    const {
+      animateHero,
+      animateOnScroll,
+      animateCards,
+      createTimeline
+    } = useAnimations();
+
+    return {
+      animateHero,
+      animateOnScroll,
+      animateCards,
+      createTimeline
+    };
   },
   data() {
     return {
@@ -139,120 +136,67 @@ export default {
     }
   },
   mounted() {
-    // Hero animations
-    gsap.to(this.$refs.pageTitle, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.2
-    });
+    // Hero animations using composable
+    this.animateHero(this.$refs.pageTitle, this.$refs.pageDesc);
 
-    gsap.to(this.$refs.pageDesc, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.4
-    });
-
-    // About section animation
-    gsap.to(this.$refs.aboutContent, {
-      scrollTrigger: {
-        trigger: this.$refs.aboutSection,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    });
+    // About section animations
+    this.animateOnScroll(
+      this.$refs.aboutContent,
+      this.$refs.aboutSection,
+      { duration: 0.8 }
+    );
 
     // Social links animation
-    gsap.to(this.$refs.socialContent, {
-      scrollTrigger: {
-        trigger: this.$refs.aboutSection,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.2
-    });
+    this.animateOnScroll(
+      this.$refs.socialContent,
+      this.$refs.aboutSection,
+      { duration: 0.8, delay: 0.2 }
+    );
 
-    // Tech section animations
-    const techTl = gsap.timeline({
+    // Tech section animations using timeline
+    this.createTimeline([
+      {
+        targets: this.$refs.techTitle,
+        props: { opacity: 1, y: 0, duration: 0.6 },
+        label: 'title'
+      },
+      {
+        targets: this.$refs.techDesc,
+        props: { opacity: 1, y: 0, duration: 0.6 },
+        position: '-=0.4'
+      },
+      {
+        targets: this.$refs.techGrid,
+        props: { opacity: 1, y: 0, duration: 0.8 },
+        position: '-=0.4'
+      }
+    ], {
       scrollTrigger: {
         trigger: this.$refs.techSection,
-        start: "top 80%"
+        start: 'top 80%'
       }
     });
 
-    techTl.to(this.$refs.techTitle, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6
-    })
-      .to(this.$refs.techDesc, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6
-      }, "-=0.4")
-      .to(this.$refs.techGrid, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8
-      }, "-=0.4");
-
     // Tech items staggered animation
-    gsap.to('.tech-item', {
-      scrollTrigger: {
-        trigger: this.$refs.techGrid,
-        start: 'top 70%'
-      },
-      opacity: 1,
-      y: 0,
-      stagger: 0.1,
-      duration: 0.5,
-      ease: 'power1.out'
-    });
-
-    // Skills summary animation
-    gsap.to(this.$refs.skillsSummary, {
-      scrollTrigger: {
-        trigger: this.$refs.skillsSummary,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    });
+    this.animateCards(
+      '.tech-item',
+      this.$refs.techGrid
+    );
   }
 }
 </script>
 
 <style scoped>
-/* Import home styles for reusing definitions */
+/* Import home styles for shared definitions */
 @import '@/assets/css/home-styles.css';
 
-/* Animation for the tech items */
+/* Component-specific styles only */
 .tech-item {
-  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animation for the PDF container */
-.border-l-4.border-yellow-400 {
-  animation: borderPulse 4s infinite;
-}
-
-@keyframes borderPulse {
-  0% {
-    border-color: #F7DE3D;
-  }
-
-  50% {
-    border-color: #FDE68A;
-  }
-
-  100% {
-    border-color: #F7DE3D;
-  }
+.tech-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(247, 222, 61, 0.1);
 }
 </style>

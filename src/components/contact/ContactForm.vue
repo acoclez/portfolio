@@ -1,4 +1,4 @@
-<!-- src/components/contact/ContactForm.vue -->
+<!-- src/components/contact/ContactForm.vue - REFACTORED -->
 <template>
     <div class="w-full">
       <div class="bg-gray-900 p-8 rounded-none shadow-2xl overflow-hidden border-l-4 border-yellow-400 relative">
@@ -15,7 +15,7 @@
             <div class="input-group">
               <div class="relative">
                 <input v-model="form.firstName" type="text" id="firstName" required
-                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-none focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white peer" />
+                  class="input peer" />
                 <label for="firstName" 
                   class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Prénom
@@ -25,7 +25,7 @@
             <div class="input-group">
               <div class="relative">
                 <input v-model="form.lastName" type="text" id="lastName" required
-                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-none focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white peer" />
+                  class="input peer" />
                 <label for="lastName" 
                   class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Nom
@@ -37,7 +37,7 @@
           <div class="input-group">
             <div class="relative">
               <input v-model="form.email" type="email" id="email" required
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-none focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white peer" />
+                class="input peer" />
               <label for="email" 
                 class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Email
@@ -48,7 +48,7 @@
           <div class="input-group">
             <div class="relative">
               <textarea v-model="form.message" id="message" rows="6" required
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-none focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white resize-y peer"></textarea>
+                class="input resize-y peer"></textarea>
               <label for="message" 
                 class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Message
@@ -57,7 +57,7 @@
           </div>
   
           <button type="submit" :disabled="isSubmitting"
-            class="w-full py-3 px-6 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-1 relative overflow-hidden group">
+            class="btn btn-primary w-full relative overflow-hidden group">
             <span class="relative z-10 flex items-center justify-center">
               <Icon icon="mdi:send" class="inline-block mr-2" width="18" />
               {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer' }}
@@ -66,8 +66,8 @@
           </button>
   
           <div v-if="formStatus.message" :class="[
-            'p-4 rounded-none text-center',
-            formStatus.type === 'success' ? 'bg-green-900 text-green-300 border-l-4 border-green-500' : 'bg-red-900 text-red-300 border-l-4 border-red-500'
+            'alert',
+            formStatus.type === 'success' ? 'alert-success' : 'alert-error'
           ]">
             <div class="flex items-center justify-center">
               <Icon 
@@ -142,7 +142,7 @@
           }
   
           // Animation success message
-          gsap.from('.bg-green-900', {
+          gsap.from('.alert-success', {
             y: 20,
             opacity: 0,
             duration: 0.5
@@ -162,7 +162,7 @@
           }
   
           // Animation error message
-          gsap.from('.bg-red-900', {
+          gsap.from('.alert-error', {
             y: 20,
             opacity: 0,
             duration: 0.5
@@ -176,80 +176,9 @@
   </script>
   
   <style scoped>
-  /* L decoration styles */
-  .l-decoration-small {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .l-decoration-small::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-  }
-  
-  .l-decoration-small::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #F7DE3D;
-    left: 0;
-    top: 0;
-  }
-  
-  .l-decoration-small-reversed {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .l-decoration-small-reversed::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .l-decoration-small-reversed::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-  }
-  
-  /* Animation for the contact form */
-  .border-l-4.border-yellow-400 {
-    animation: borderPulse 4s infinite;
-  }
-  
-  @keyframes borderPulse {
-    0% {
-      border-color: #F7DE3D;
-    }
-    50% {
-      border-color: #FDE68A;
-    }
-    100% {
-      border-color: #F7DE3D;
-    }
-  }
-  
-  /* Form focus effects */
-  input:focus, textarea:focus {
-    box-shadow: 0 0 0 3px rgba(247, 222, 61, 0.3);
-  }
+  /* All L-decoration styles now come from home-styles.css */
+  /* borderPulse animation now in home-styles.css */
+  /* input and alert styles now in main.css */
   
   /* Floating label styles */
   input:focus ~ label,

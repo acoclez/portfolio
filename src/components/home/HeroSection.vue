@@ -17,11 +17,13 @@
                     class="transform transition hover:scale-110 text-yellow-400">
                     <Icon icon="mdi:github" width="40" height="40" />
                 </a>
-                <a href="https://gitlab.com/" target="_blank" class="transform transition hover:scale-110 text-yellow-400">
+                <a href="https://gitlab.com/ACoclez" target="_blank" 
+                    class="transform transition hover:scale-110 text-yellow-400">
                     <Icon icon="mdi:gitlab" width="40" height="40" />
                 </a>
-                <a href="https://twitter.com/" target="_blank" class="transform transition hover:scale-110 text-yellow-400">
-                    <Icon icon="mdi:twitter" width="40" height="40" />
+                <a href="https://www.linkedin.com/in/antoine-coclez-3a6833304/" target="_blank"
+                    class="transform transition hover:scale-110 text-yellow-400">
+                    <Icon icon="mdi:linkedin" width="40" height="40" />
                 </a>
             </div>
 

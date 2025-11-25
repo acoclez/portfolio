@@ -6,9 +6,9 @@
         <div class="md:col-span-1">
           <p class="text-gray-300 leading-relaxed">
             Bonjour, je suis Antoine Coclez, jeune développeur informatique
-            de 20 ans basé à Bordeaux. Avec deux ans d'expérience en tant
-            que développeur web, je suis motivé à travailler sur
-            des solutions logicielles dynamiques et innovantes.
+            de 21 ans. Avec trois ans d'expérience en tant que développeur 
+            web full-stack, je suis motivé à travailler sur des solutions 
+            web dynamiques et innovantes.
             Explorez mon portfolio pour mieux me connaître.
           </p>
         </div>

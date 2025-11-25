@@ -7,7 +7,7 @@
             <h2 class="text-2xl font-bold mb-6">Retrouvez-moi sur</h2>
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <a v-for="(social, index) in socialLinks" :key="index" :href="social.url" target="_blank"
-                    class="transform transition hover:scale-110 bg-gray-800 p-4 rounded-full hover:bg-gray-700 hover:shadow-lg hover:shadow-yellow-900/10 flex items-center justify-center">
+                    class="social-link transform transition hover:scale-110 bg-gray-800 p-4 rounded-full hover:bg-gray-700 hover:shadow-lg hover:shadow-yellow-900/10 flex items-center justify-center">
                     <Icon :icon="social.icon" class="text-yellow-400" width="36" />
                 </a>
             </div>
@@ -83,7 +83,7 @@ export default {
         };
     },
     mounted() {
-        gsap.from('a.transform.transition', {
+        gsap.from('.social-link', {
             scale: 0,
             opacity: 0,
             stagger: 0.1,
@@ -111,25 +111,9 @@ export default {
 </script>
   
 <style scoped>
-.border-t-4.border-yellow-400 {
-    animation: borderPulse 4s infinite;
-}
+/* borderPulse animation now in home-styles.css */
 
-@keyframes borderPulse {
-    0% {
-        border-color: #F7DE3D;
-    }
-
-    50% {
-        border-color: #FDE68A;
-    }
-
-    100% {
-        border-color: #F7DE3D;
-    }
-}
-
-a.transform.transition {
+.social-link {
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -142,49 +126,13 @@ a.transform.transition {
 }
 
 @keyframes bounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-6px);
     }
 }
 
-.l-decoration-small-reversed {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-}
-
-.l-decoration-small-reversed::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-small-reversed::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-small-reversed.top-right::before {
-    right: 0;
-    top: 0;
-}
-
-.l-decoration-small-reversed.top-right::after {
-    right: 0;
-    top: 0;
-}</style>
+/* L-decoration styles now come from home-styles.css */
+</style>

@@ -30,7 +30,7 @@ export default {
         { name: 'Accueil', path: '/' },
         { name: 'A propos', path: '/about' },
         { name: 'Projets', path: '/projects' },
-        { name: 'Veille', path: '/veille' }
+        { name: 'Veille', path: '/veille' },
         // { name: 'Contact', path: '/contact' }
       ]
     }
@@ -59,75 +59,12 @@ export default {
 </script>
 
 <style scoped>
-/* L decorations for the corners */
-.l-decoration-small {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-}
-
-.l-decoration-small::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #F7DE3D;
-  left: 0;
-  top: 0;
-}
-
-.l-decoration-small::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #F7DE3D;
-  left: 0;
-  top: 0;
-}
-
-.l-decoration-small-reversed {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-}
-
-.l-decoration-small-reversed::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #F7DE3D;
-  right: 0;
-  bottom: 0;
-}
-
-.l-decoration-small-reversed::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #F7DE3D;
-  right: 0;
-  bottom: 0;
-}
+/* L-decorations now come from home-styles.css */
 
 /* Active link styles */
 .nav-highlight {
   animation: borderPulse 4s infinite;
 }
 
-@keyframes borderPulse {
-  0% {
-    border-color: #F7DE3D;
-  }
-
-  50% {
-    border-color: #FDE68A;
-  }
-
-  100% {
-    border-color: #F7DE3D;
-  }
-}
+/* borderPulse animation now in home-styles.css */
 </style>
