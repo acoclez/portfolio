@@ -1,4 +1,4 @@
-<!-- src/views/ContactView.vue - PROPERLY REFACTORED -->
+<!-- src/views/ContactView.vue -->
 <template>
   <div class="min-h-screen bg-black text-white relative">
     <!-- Background Grid - fixed position -->
@@ -23,7 +23,7 @@
       </div>
     </section>
 
-    <!-- Contact Section - Using Components -->
+    <!-- Contact Section -->
     <section ref="contactSection" class="max-w-4xl mx-auto px-4 py-12">
       <div class="flex flex-col md:flex-row gap-12">
         <!-- Contact Form Component -->
@@ -60,7 +60,6 @@ export default {
     CallToActionSection
   },
   mounted() {
-    // Hero animations
     gsap.to(this.$refs.pageTitle, {
       opacity: 1,
       y: 0,
@@ -75,7 +74,6 @@ export default {
       delay: 0.4
     });
 
-    // Form section animation
     gsap.to(this.$refs.formSection, {
       scrollTrigger: {
         trigger: this.$refs.contactSection,
@@ -87,7 +85,6 @@ export default {
       delay: 0.2
     });
 
-    // Social section animation
     gsap.to(this.$refs.socialSection, {
       scrollTrigger: {
         trigger: this.$refs.contactSection,
@@ -101,38 +98,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-@import '@/assets/css/home-styles.css';
-
-/* Section title bar */
-.section-title-bar {
-  width: 80px;
-  height: 3px;
-  background-color: #F7DE3D;
-  position: relative;
-  margin-top: 10px;
-}
-
-.section-title-bar::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: -10px;
-  width: 20px;
-  height: 20px;
-  border-left: 3px solid #F7DE3D;
-  border-top: 3px solid #F7DE3D;
-}
-
-.section-title-bar::after {
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: -10px;
-  width: 20px;
-  height: 20px;
-  border-right: 3px solid #F7DE3D;
-  border-top: 3px solid #F7DE3D;
-}
-</style>

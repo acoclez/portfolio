@@ -1,4 +1,4 @@
-<!-- src/views/VeilleView.vue - PROPERLY REFACTORED -->
+<!-- src/views/VeilleView.vue -->
 <template>
   <div class="min-h-screen bg-black text-white relative">
     <!-- Background Grid - fixed position -->
@@ -15,7 +15,7 @@
 
         <h1 ref="pageTitle" class="text-4xl md:text-5xl font-bold mb-4 transform translate-y-10 opacity-0">Veille</h1>
         <p ref="pageDesc" class="text-xl text-gray-400 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-          Là où je partage mes connaissances sur mon sujet de veille, Spring.
+          Ma veille technologique sur Laravel et son écosystème.
         </p>
       </div>
     </section>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="space-y-12">
-        <!-- Article 1: Spring AI (December 2024) - Most Recent -->
+        <!-- Article 1: Laravel 12 Starter Kits (February 2025) - Most Recent -->
         <article ref="article1" class="transform translate-y-20 opacity-0">
           <div class="bg-gray-900 rounded-none overflow-hidden shadow-xl border-l-4 border-yellow-400 relative">
             <!-- L top right decoration -->
@@ -40,53 +40,52 @@
               <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
                   <Icon icon="mdi:rocket-launch" class="text-yellow-400 mr-3" width="28" />
-                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">Innovation</span>
+                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">Nouveauté majeure</span>
                 </div>
-                <span class="text-sm text-gray-500 font-medium">Décembre 2024</span>
+                <span class="text-sm text-gray-500 font-medium">Février 2025</span>
               </div>
               
-              <h3 class="text-2xl font-bold mb-6">Spring AI 1.0 M5 : L'intelligence artificielle native arrive</h3>
+              <h3 class="text-2xl font-bold mb-6">Laravel 12 : Nouveaux Starter Kits pour React, Vue et Livewire</h3>
               
               <div class="prose prose-invert max-w-none text-gray-300">
                 <p class="mb-4">
-                  <strong>Spring AI 1.0 M5</strong>, sorti en décembre 2024, marque la dernière étape avant la GA 
-                  prévue en 2025. Cette révolution intègre l'IA nativement dans l'écosystème Spring.
+                  Sorti le <strong>24 février 2025</strong>, Laravel 12 marque une évolution majeure avec ses nouveaux 
+                  starter kits officiels, remplaçant Breeze et Jetstream par une approche modulaire et moderne.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">ChatClient : L'API unifiée</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Trois stacks au choix</h4>
                 <p class="mb-3">
-                  Le <code class="bg-gray-800 px-2 py-1 text-yellow-400">ChatClient</code> offre une interface fluide 
-                  pour 20+ modèles IA (OpenAI, Anthropic, Bedrock). Le switch entre providers devient transparent 
-                  avec la même API Spring familière que <strong>WebClient</strong> ou <strong>RestClient</strong>.
+                  Le <strong>React Starter Kit</strong> intègre Inertia.js 2, React 19, TypeScript et shadcn/ui pour des 
+                  interfaces SPA performantes. Le <strong>Vue Starter Kit</strong> propose Vue 3 avec shadcn-vue. 
+                  Le <strong>Livewire 3 Kit</strong> combine Volt, Flux UI et full-stack reactivity sans JavaScript complexe.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">RAG et Vector Stores</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">WorkOS AuthKit intégré</h4>
                 <p class="mb-3">
-                  Spring AI inclut nativement le <strong>Retrieval Augmented Generation</strong> avec support 
-                  pour PostgreSQL/PGVector, Pinecone, MongoDB Atlas, Redis. La création d'assistants IA métier 
-                  se fait en quelques annotations Spring Boot avec l'<strong>@Advisor</strong> pattern.
+                  Chaque kit existe en variante WorkOS offrant <strong>authentification sociale</strong>, 
+                  <strong>passkeys</strong> et <strong>SSO</strong> enterprise out-of-the-box. Plus besoin de configurer 
+                  manuellement OAuth ou WebAuthn.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Model Context Protocol incubating</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Zéro breaking changes</h4>
                 <p>
-                  M5 introduit le support expérimental du <strong>Model Context Protocol (MCP)</strong>, 
-                  permettant l'intégration standardisée d'outils externes. C'est un game-changer pour 
-                  les applications entreprise nécessitant des interactions complexes avec des systèmes legacy.
+                  Laravel 12 est la première version majeure sans changements cassants. La migration depuis Laravel 11 
+                  se fait en quelques minutes, permettant d'adopter immédiatement les nouveaux starter kits sans risque.
                 </p>
               </div>
               
               <div class="mt-8">
-                <a href="https://spring.io/blog/2024/12/23/spring-ai-1-0-0-m5-released" target="_blank" 
+                <a href="https://laravel.com/docs/12.x/releases" target="_blank" 
                   class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition font-medium">
                   <Icon icon="mdi:external-link" class="mr-2" width="16" />
-                  Découvrir Spring AI 1.0 M5
+                  Laravel 12 Release Notes
                 </a>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Article 2: Spring Security (November 2024) -->
+        <!-- Article 2: Laravel 12.8 Automatic Eager Loading (September 2025) -->
         <article ref="article2" class="transform translate-y-20 opacity-0">
           <div class="bg-gray-900 rounded-none overflow-hidden shadow-xl border-l-4 border-yellow-400 relative">
             <!-- L top right decoration -->
@@ -95,52 +94,50 @@
             <div class="p-8">
               <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
-                  <Icon icon="mdi:shield-check" class="text-yellow-400 mr-3" width="28" />
-                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">Sécurité</span>
+                  <Icon icon="mdi:flash" class="text-yellow-400 mr-3" width="28" />
+                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">Performance</span>
                 </div>
-                <span class="text-sm text-gray-500 font-medium">Novembre 2024</span>
+                <span class="text-sm text-gray-500 font-medium">Septembre 2025</span>
               </div>
               
-              <h3 class="text-2xl font-bold mb-6">Spring Security 6.4 et l'authentification du futur</h3>
+              <h3 class="text-2xl font-bold mb-6">Laravel 12.8 : Eager Loading automatique contre le N+1</h3>
               
               <div class="prose prose-invert max-w-none text-gray-300">
                 <p class="mb-4">
-                  <strong>Spring Security 6.4</strong>, sorti en novembre 2024, introduit les <strong>Passkeys</strong> 
-                  et les <strong>One-Time Tokens</strong>, marquant l'évolution vers l'authentification moderne sans mot de passe.
+                  Laravel 12.8 introduit l'<strong>automatic eager loading</strong>, éliminant le problème N+1 
+                  sans que les développeurs n'ajoutent manuellement <code class="bg-gray-800 px-2 py-1 text-yellow-400">with()</code>.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">L'ère des Passkeys</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Détection intelligente</h4>
                 <p class="mb-3">
-                  Les Passkeys (WebAuthn) utilisent la biométrie et la cryptographie pour éliminer les mots de passe. 
-                  Spring Security 6.4 simplifie drastiquement leur implémentation avec l'annotation 
-                  <code class="bg-gray-800 px-2 py-1 text-yellow-400">@EnableWebSecurity</code> et une configuration auto-générée.
+                  Lorsqu'une relation est accédée plusieurs fois dans une boucle, Laravel 12.8 détecte le pattern et 
+                  charge automatiquement la relation en une seule requête. Plus besoin de se souvenir d'optimiser manuellement.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">One-Time Tokens natifs</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Lazy collections améliorées</h4>
                 <p class="mb-3">
-                  La nouvelle classe <code class="bg-gray-800 px-2 py-1 text-yellow-400">OneTimeTokenService</code> 
-                  gère automatiquement les tokens temporaires pour la réinitialisation de mots de passe et la vérification email. 
-                  Plus besoin d'implémenter cette logique manuellement.
+                  Les lazy collections gèrent désormais mieux les gros datasets avec moins de mémoire. Nouvelles méthodes 
+                  pour filtrer et sortir d'itérations précocement, crucial pour le traitement de fichiers volumineux ou APIs.
                 </p>
                 
                 <p>
-                  Ces innovations positionnent Spring Security à l'avant-garde de la sécurité moderne, 
-                  anticipant l'abandon progressif des mots de passe traditionnels d'ici 2026.
+                  Cette amélioration transforme l'expérience développeur : performances optimales par défaut, 
+                  sans sacrifier la lisibilité du code ou forcer des patterns complexes.
                 </p>
               </div>
               
               <div class="mt-8">
-                <a href="https://spring.io/blog/2024/11/21/spring-security-6-4-0-available-now" target="_blank" 
+                <a href="https://medium.com/@jha.ameet/laravel-12-x-updates-top-10-features-for-developers-2025-guide-a947abc2f6e0" target="_blank" 
                   class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition font-medium">
                   <Icon icon="mdi:external-link" class="mr-2" width="16" />
-                  Lire l'annonce officielle
+                  Laravel 12.x Complete Guide
                 </a>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Article 3: TestContainers (November 2024) -->
+        <!-- Article 3: Native Health Checks (February 2025) -->
         <article ref="article3" class="transform translate-y-20 opacity-0">
           <div class="bg-gray-900 rounded-none overflow-hidden shadow-xl border-l-4 border-yellow-400 relative">
             <!-- L top right decoration -->
@@ -149,52 +146,44 @@
             <div class="p-8">
               <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
-                  <Icon icon="mdi:lightbulb" class="text-yellow-400 mr-3" width="28" />
-                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">Bonnes pratiques</span>
+                  <Icon icon="mdi:heart-pulse" class="text-yellow-400 mr-3" width="28" />
+                  <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1">DevOps</span>
                 </div>
-                <span class="text-sm text-gray-500 font-medium">Novembre 2024</span>
+                <span class="text-sm text-gray-500 font-medium">Février 2025</span>
               </div>
               
-              <h3 class="text-2xl font-bold mb-6">Spring Boot 3.4 : TestContainers à maturité</h3>
+              <h3 class="text-2xl font-bold mb-6">Laravel 12 : Health Checks natifs pour Kubernetes</h3>
               
               <div class="prose prose-invert max-w-none text-gray-300">
                 <p class="mb-4">
-                  <strong>Spring Boot 3.4</strong> (novembre 2024) élève TestContainers à un nouveau niveau de maturité 
-                  avec des améliorations structurelles majeures pour l'intégration et les performances.
+                  Laravel 12 introduit des <strong>health checks natifs</strong> accessibles via endpoints dédiés, 
+                  éliminant les packages tiers pour le monitoring d'infrastructure.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Redis Stack et Hazelcast natifs</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Endpoints configurables</h4>
                 <p class="mb-3">
-                  Spring Boot 3.4 ajoute le support natif pour <strong>Redis Stack</strong> via 
-                  <code class="bg-gray-800 px-2 py-1 text-yellow-400">redis/redis-stack-server</code> et 
-                  <strong>Hazelcast</strong> avec <code class="bg-gray-800 px-2 py-1 text-yellow-400">@ServiceConnection</code>. 
-                  Ces ajouts élargissent considérablement les possibilités de test distribué.
+                  Vérifiez automatiquement les connexions database, cache, queues et services externes. 
+                  Parfait pour Kubernetes liveness/readiness probes ou Docker Swarm health checks sans configuration complexe.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Startup parallèle optimisé</h4>
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Artisan CLI modernisé</h4>
                 <p class="mb-3">
-                  La propriété <code class="bg-gray-800 px-2 py-1 text-yellow-400">spring.testcontainers.beans.startup=parallel</code> 
-                  permet le démarrage simultané des containers. Les suites de tests complexes voient leurs temps 
-                  d'exécution divisés par 2 à 3 selon la configuration.
+                  Les commandes Artisan affichent désormais des messages plus clairs avec formatage amélioré. 
+                  Migrations, queues et config caching deviennent plus rapides et intuitifs pour l'automatisation CI/CD.
                 </p>
                 
-                <h4 class="text-yellow-400 font-bold mt-6 mb-3">Intégration Docker Compose renforcée</h4>
-                <p class="mb-3">
-                  Spring Boot 3.4 étend le support des images <strong>Bitnami</strong> et optimise la détection 
-                  automatique des services. L'expérience développeur devient seamless entre tests et développement local.
-                </p>
-                
+                <h4 class="text-yellow-400 font-bold mt-6 mb-3">xxHash pour les performances</h4>
                 <p>
-                  Ces évolutions consolident TestContainers comme solution de référence pour l'infrastructure-as-code 
-                  dans l'écosystème Spring, garantissant une parité parfaite dev/test/prod.
+                  Remplacement interne de MD5 par xxHash pour des hash paths plus performants. Amélioration transparente 
+                  sans changement de code applicatif, mais avec gains mesurables sur les applications à fort trafic.
                 </p>
               </div>
               
               <div class="mt-8">
-                <a href="https://spring.io/blog/2024/11/21/spring-boot-3-4-0-available-now" target="_blank" 
+                <a href="https://acquaintsoft.com/blog/whats-new-in-laravel-12" target="_blank" 
                   class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition font-medium">
                   <Icon icon="mdi:external-link" class="mr-2" width="16" />
-                  Spring Boot 3.4 Release Notes
+                  What's New in Laravel 12
                 </a>
               </div>
             </div>
@@ -203,39 +192,36 @@
       </div>
     </section>
 
-    <!-- RSS Feeds Section - Using VeilleFeedCard Component -->
+    <!-- RSS Feeds Section -->
     <section ref="feedsSection" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Spring Blog Feed -->
         <div ref="feedCard1" class="transform translate-y-20 opacity-0">
           <VeilleFeedCard
-            title="Spring Blog"
-            :items="feeds.blog"
-            :isLoading="isLoading.blog"
-            :error="error.blog"
-            feederUrl="https://feeder.co/discover/3bf86e440d/spring-io-blog"
+            title="Laravel News"
+            :items="feeds.news"
+            :isLoading="isLoading.news"
+            :error="error.news"
+            feederUrl="https://feeder.co/discover/987229b0ac/laravel-news-com"
           />
         </div>
 
-        <!-- Spring Engineering Feed -->
         <div ref="feedCard2" class="transform translate-y-20 opacity-0">
           <VeilleFeedCard
-            title="Spring Engineering"
-            :items="feeds.engineering"
-            :isLoading="isLoading.engineering"
-            :error="error.engineering"
-            feederUrl="https://feeder.co/discover/0856437d81/spring-io-blog-category-engineering"
+            title="Laravel Releases"
+            :items="feeds.releases"
+            :isLoading="isLoading.releases"
+            :error="error.releases"
+            feederUrl="https://feeder.co/discover/987229b0ac/laravel-news-com"
           />
         </div>
       </div>
 
-      <!-- Spring Framework Overview Component -->
       <div ref="springOverview" class="mt-16 transform translate-y-20 opacity-0">
-        <SpringOverview />
+        <LaravelOverview />
       </div>
     </section>
+    <div class="h-24 bg-gradient-to-b from-black to-gray-900"></div>
 
-    <!-- Call To Action -->
     <CallToActionSection />
   </div>
 </template>
@@ -245,7 +231,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
 import VeilleFeedCard from '@/components/veille/VeilleFeedCard.vue';
-import SpringOverview from '@/components/veille/SpringOverview.vue';
+import LaravelOverview from '@/components/veille/LaravelOverview.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -255,27 +241,26 @@ export default {
   components: {
     Icon,
     VeilleFeedCard,
-    SpringOverview,
+    LaravelOverview,
     CallToActionSection
   },
   data() {
     return {
       feeds: {
-        blog: [],
-        engineering: []
+        news: [],
+        releases: []
       },
       isLoading: {
-        blog: true,
-        engineering: true
+        news: true,
+        releases: true
       },
       error: {
-        blog: null,
-        engineering: null
+        news: null,
+        releases: null
       }
     }
   },
   mounted() {
-    // Hero animations
     gsap.to(this.$refs.pageTitle, {
       opacity: 1,
       y: 0,
@@ -290,7 +275,6 @@ export default {
       delay: 0.4
     });
 
-    // Articles section animations
     gsap.to(this.$refs.articlesTitle, {
       scrollTrigger: {
         trigger: this.$refs.articlesSection,
@@ -301,7 +285,6 @@ export default {
       duration: 0.8
     });
 
-    // Articles staggered animation  
     gsap.to([this.$refs.article1, this.$refs.article2, this.$refs.article3], {
       scrollTrigger: {
         trigger: this.$refs.articlesSection,
@@ -314,7 +297,6 @@ export default {
       delay: 0.3
     });
 
-    // Feed cards animations
     gsap.to(this.$refs.feedCard1, {
       scrollTrigger: {
         trigger: this.$refs.feedsSection,
@@ -337,7 +319,6 @@ export default {
       delay: 0.4
     });
 
-    // Spring overview animation
     gsap.to(this.$refs.springOverview, {
       scrollTrigger: {
         trigger: this.$refs.springOverview,
@@ -348,87 +329,100 @@ export default {
       duration: 0.8
     });
 
-    // Fetch RSS feeds
-    this.fetchRSSFeed('https://spring.io/blog.atom', 'blog');
-    this.fetchRSSFeed('https://spring.io/blog/category/engineering.atom', 'engineering');
+    this.fetchRSSFeed('laravel-news', 'news');
+    this.fetchRSSFeed('laravel-releases', 'releases');
   },
   methods: {
-    async fetchRSSFeed(url, feedType) {
-      this.isLoading[feedType] = true;
-      this.error[feedType] = null;
+    async fetchRSSFeed(feedType, dataKey) {
+      this.isLoading[dataKey] = true;
+      this.error[dataKey] = null;
 
       try {
-        // Simulation for example (in production, use server-side proxy)
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 800));
 
-        const blogMockItems = [
+        const newsMockItems = [
           {
-            title: 'Spring AI 1.0 GA Released',
-            link: 'https://spring.io/blog/2025/05/20/spring-ai-1-0-GA-released',
-            date: '2025-05-20T10:00:00Z',
-            author: 'Mark Pollack',
-            description: 'We are excited to announce Spring AI 1.0 GA, featuring ChatClient interface supporting 20 AI models, Advisors API, and full Model Context Protocol support.'
+            title: 'PHP 8.5 Released with Pipe Operator and New Array Functions',
+            link: 'https://laravel-news.com/php-8-5-0',
+            date: '2025-11-19T10:00:00Z',
+            author: 'Paul Redmond',
+            description: 'PHP 8.5 introduces the Pipe operator for chaining callables, native array_first() and array_last() functions, a new URI extension, and improved error handling capabilities.'
           },
           {
-            title: 'Spring Boot 3.5.0 available now',
-            link: 'https://spring.io/blog/2025/05/22/spring-boot-3-5-0-available-now',
-            date: '2025-05-22T14:00:00Z',
-            author: 'Stéphane Nicoll',
-            description: 'Spring Boot 3.5.0 has been released with significant new features including TaskDecorator support for scheduled tasks and Vibur DBCP connection pool support.'
+            title: 'Laravel for the Rest of Us Book Launch',
+            link: 'https://laravel-news.com/laravel-for-the-rest-of-us',
+            date: '2025-11-18T14:30:00Z',
+            author: 'Pete Heslop',
+            description: 'New book by Pete Heslop helps non-technical teams understand Laravel development, bridging communication between developers and business stakeholders.'
           },
           {
-            title: 'Spring Modulith 1.4 Released',
-            link: 'https://spring.io/blog/2025/05/28/spring-modulith-1-4-released',
-            date: '2025-05-28T09:30:00Z',
-            author: 'Oliver Drotbohm',
-            description: 'Spring Modulith 1.4 introduces refinements in ApplicationModule abstractions, SPI for detecting NamedInterfaces, and improved integration testing capabilities.'
+            title: 'Livewire 4 Beta: Major Changes and Upgrade Guide',
+            link: 'https://laraveldaily.com/post/livewire-4-beta',
+            date: '2025-11-13T09:15:00Z',
+            author: 'Laravel Daily',
+            description: 'Livewire 4 beta brings significant performance improvements, better Alpine.js integration, and streamlined syntax for building reactive Laravel interfaces.'
           },
           {
-            title: 'Spring Security 6.4.0 available now',
-            link: 'https://spring.io/blog/2024/11/21/spring-security-6-4-0-available-now',
-            date: '2024-11-21T16:00:00Z',
-            author: 'Spring Security Team',
-            description: 'Spring Security 6.4 delivers Passkeys support, One-Time Tokens, and simplified OAuth 2.0 configuration with numerous deprecations and replacements.'
+            title: 'Laravel Cloud WebSockets: Managed Reverb Clusters',
+            link: 'https://laravel.com/blog/laravel-cloud-websockets',
+            date: '2025-11-13T11:20:00Z',
+            author: 'Laravel Team',
+            description: 'Launch real-time features with managed Laravel Reverb clusters on Laravel Cloud, offering up to 50% cost savings compared to third-party WebSocket services.'
+          },
+          {
+            title: 'Laravel Boost: AI-Powered Development Acceleration',
+            link: 'https://blog.laravel.com/laracon-us-2025-boost',
+            date: '2025-11-07T16:45:00Z',
+            author: 'Taylor Otwell',
+            description: 'Laravel Boost provides essential context for AI coding assistants to generate high-quality Laravel-specific code, accelerating development workflows significantly.'
           }
         ];
 
-        const engineeringMockItems = [
+        const releasesMockItems = [
           {
-            title: 'Runtime Efficiency with Spring Framework 6.2',
-            link: 'https://spring.io/blog/2024/11/22/runtime-efficiency-with-spring',
-            date: '2024-11-22T11:00:00Z',
-            author: 'Juergen Hoeller',
-            description: 'Exploring Ahead-of-Time optimizations in Spring Framework 6.2, including GraalVM native images, CRaC, CDS, and the upcoming AOT cache from Project Leyden.'
+            title: 'Laracon US 2025: Major Announcements Recap',
+            link: 'https://blog.laravel.com/everything-we-announced-at-laracon-us-2025',
+            date: '2025-11-15T15:00:00Z',
+            author: 'Laravel Team',
+            description: 'New Laravel Forge redesign with instant provisioning via Laravel VPS, Laravel MCP library for AI integration, and Boost for AI-assisted development announced at Laracon US.'
           },
           {
-            title: 'Spring Boot 3.4 TestContainers Enhancements',
-            link: 'https://spring.io/blog/2024/11/21/spring-boot-3-4-testcontainers',
-            date: '2024-11-21T13:30:00Z',
-            author: 'Moritz Halbritter',
-            description: 'Spring Boot 3.4 introduces Redis Stack support, Hazelcast integration, parallel container startup, and enhanced Docker Compose capabilities for TestContainers.'
+            title: 'Laravel 13 Preview: Q1 2026 Release Details',
+            link: 'https://medium.com/laravel-13-preview',
+            date: '2025-11-05T10:30:00Z',
+            author: 'Subhash Ladumor',
+            description: 'Laravel 13 will require PHP 8.3+, introduce new Reverb driver improvements, enhanced testing profiling, and updated Symfony components for better security.'
           },
           {
-            title: 'Observability Improvements in Spring Boot 3.4',
-            link: 'https://spring.io/blog/2024/11/20/observability-spring-boot-3-4',
-            date: '2024-11-20T08:45:00Z',
-            author: 'Marcin Grzejszczak',
-            description: 'Spring Boot 3.4 enhances observability with structured logging support for ECS, Logstash, and GELF formats, plus expanded virtual thread integration.'
+            title: 'Laravel MCP: Model Context Protocol Library',
+            link: 'https://github.com/laravel/mcp',
+            date: '2025-11-01T13:00:00Z',
+            author: 'Laravel Team',
+            description: 'Build Model Context Protocols easily so Laravel apps can integrate seamlessly with AI chats and assistants, meeting users where they are.'
           },
           {
-            title: 'Spring Framework 6.2 and Virtual Threads',
-            link: 'https://spring.io/blog/2024/11/15/spring-framework-6-2-virtual-threads',
-            date: '2024-11-15T15:20:00Z',
-            author: 'Sébastien Deleuze',
-            description: 'Deep dive into Spring Framework 6.2\'s enhanced virtual thread support, performance improvements, and integration with reactive programming models.'
+            title: 'Livewire 4 Beta: Full-Stack Framework Evolution',
+            link: 'https://livewire.laravel.com/docs/v4',
+            date: '2025-10-28T12:00:00Z',
+            author: 'Caleb Porzio',
+            description: 'Livewire 4 beta includes performance optimizations, refined API, better Alpine.js synergy, and streamlined state management for reactive components.'
+          },
+          {
+            title: 'Laravel Coding with AI Agents: November 2025 Update',
+            link: 'https://laraveldaily.com/course/laravel-ai-agents',
+            date: '2025-10-20T08:00:00Z',
+            author: 'Povilas Korop',
+            description: 'Overview of using Cursor, Claude Code, and Codex CLI for Laravel projects in late 2025, covering best practices and workflow optimizations.'
           }
         ];
 
-        this.feeds[feedType] = feedType === 'blog' ? blogMockItems : engineeringMockItems;
+        this.feeds[dataKey] = feedType === 'laravel-news' ? newsMockItems : releasesMockItems;
+
       } catch (error) {
-        this.error[feedType] = 'Erreur lors du chargement des articles. Veuillez réessayer ultérieurement.';
         console.error(`Erreur de chargement du flux ${feedType}:`, error);
+        this.error[dataKey] = 'Impossible de charger les articles. Veuillez réessayer plus tard.';
       } finally {
-        this.isLoading[feedType] = false;
+        this.isLoading[dataKey] = false;
       }
     }
   }
@@ -436,10 +430,6 @@ export default {
 </script>
 
 <style scoped>
-/* Import home styles for reusing definitions */
-@import '@/assets/css/home-styles.css';
-
-/* Styling for the prose content */
 .prose :deep(h3) {
   color: #F7DE3D;
   margin-top: 1.5rem;
@@ -460,35 +450,6 @@ export default {
   margin-bottom: 0.5rem;
 }
 
-/* L decoration for top right */
-.l-decoration-small-reversed.top-right::before {
-  right: 0;
-  top: 0;
-}
-
-.l-decoration-small-reversed.top-right::after {
-  right: 0;
-  top: 0;
-}
-
-/* Animation for the border */
-.border-l-4.border-yellow-400 {
-  animation: borderPulse 4s infinite;
-}
-
-@keyframes borderPulse {
-  0% {
-    border-color: #F7DE3D;
-  }
-  50% {
-    border-color: #FDE68A;
-  }
-  100% {
-    border-color: #F7DE3D;
-  }
-}
-
-/* Article code styling */
 .prose code {
   font-size: 0.875rem;
   font-weight: 600;

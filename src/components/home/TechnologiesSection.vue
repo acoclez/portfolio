@@ -1,7 +1,6 @@
-<!-- src/components/home/TechnologiesSection.vue - REFACTORED -->
+<!-- src/components/home/TechnologiesSection.vue -->
 <template>
     <section ref="techSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
-        <!-- Decorative element -->
         <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent"></div>
         <div class="max-w-6xl mx-auto relative">
             <!-- L top left -->
@@ -75,7 +74,6 @@ export default {
         }
     },
     mounted() {
-        // Create animation timeline
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: this.$refs.techSection,
@@ -104,7 +102,6 @@ export default {
                 duration: 0.6
             }, '-=0.4');
 
-        // Tech items staggered animation
         gsap.to('.tech-item', {
             scrollTrigger: {
                 trigger: this.$refs.techGrid,
@@ -121,7 +118,6 @@ export default {
 </script>
   
 <style scoped>
-/* Tech items specific styles */
 .tech-item {
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     min-width: 0;
@@ -131,6 +127,4 @@ export default {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px -5px rgba(247, 222, 61, 0.1);
 }
-
-/* L-decoration styles now come from home-styles.css */
 </style>

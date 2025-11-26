@@ -15,24 +15,24 @@
 
             <p ref="veilleDesc"
                 class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-                Présentation de ma veille technologique sur Spring
+                Ma veille technologique sur Laravel et son écosystème
             </p>
 
             <div ref="veilleGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 transform translate-y-20 opacity-0">
                 <div
                     class="bg-gray-800 rounded-none p-6 border-t-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-xl relative">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <Icon icon="mdi:leaf" class="mr-2 text-yellow-400" width="24" />
-                        Spring Blog
+                        <Icon icon="mdi:newspaper-variant" class="mr-2 text-yellow-400" width="24" />
+                        Laravel News
                     </h3>
                     <div class="space-y-3">
-                        <a href="https://spring.io/blog/2022/11/16/spring-framework-6-0-goes-ga" target="_blank"
+                        <a href="https://laravel-news.com/php-8-5" target="_blank"
                             class="block p-3 bg-gray-900 hover:bg-gray-700 transition border-l-2 border-transparent hover:border-yellow-400">
-                            <div class="font-medium">Spring Framework 6.0 goes GA</div>
+                            <div class="font-medium">PHP 8.5 Released with Pipe Operator</div>
                         </a>
-                        <a href="https://spring.io/blog/2022/11/24/spring-boot-3-0-is-now-ga" target="_blank"
+                        <a href="https://laravel-news.com/livewire-4-beta" target="_blank"
                             class="block p-3 bg-gray-900 hover:bg-gray-700 transition border-l-2 border-transparent hover:border-yellow-400">
-                            <div class="font-medium">Spring Boot 3.0 is now GA</div>
+                            <div class="font-medium">Livewire 4 Beta Announcement</div>
                         </a>
                     </div>
                 </div>
@@ -40,17 +40,17 @@
                 <div
                     class="bg-gray-800 rounded-none p-6 border-t-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-xl relative">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <Icon icon="mdi:code-braces" class="mr-2 text-yellow-400" width="24" />
-                        Spring Engineering
+                        <Icon icon="mdi:package-variant" class="mr-2 text-yellow-400" width="24" />
+                        Laravel Releases
                     </h3>
                     <div class="space-y-3">
-                        <a href="https://spring.io/blog/2022/12/15/upgrading-to-spring-boot-3-0" target="_blank"
+                        <a href="https://laravel.com/docs/12.x/releases" target="_blank"
                             class="block p-3 bg-gray-900 hover:bg-gray-700 transition border-l-2 border-transparent hover:border-yellow-400">
-                            <div class="font-medium">Upgrading to Spring Boot 3.0</div>
+                            <div class="font-medium">Laravel 12 Starter Kits Released</div>
                         </a>
-                        <a href="https://spring.io/blog/2023/01/10/spring-modulith-1-0-rc1-released" target="_blank"
+                        <a href="https://medium.com/@jha.ameet/laravel-12-x-updates" target="_blank"
                             class="block p-3 bg-gray-900 hover:bg-gray-700 transition border-l-2 border-transparent hover:border-yellow-400">
-                            <div class="font-medium">Spring Modulith 1.0 RC1 released</div>
+                            <div class="font-medium">Laravel 12.8 Auto Eager Loading</div>
                         </a>
                     </div>
                 </div>
@@ -113,41 +113,5 @@ export default {
 </script>
   
 <style scoped>
-/* L decoration styles */
-.l-decoration-small-reversed {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-}
-
-.l-decoration-small-reversed::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-small-reversed::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #F7DE3D;
-    right: 0;
-    bottom: 0;
-}
-
-.l-decoration-small-reversed.top-right::before {
-    right: 0;
-    top: 0;
-}
-
-.l-decoration-small-reversed.top-right::after {
-    right: 0;
-    top: 0;
-}
-
+/* All styles from home-styles.css */
 </style>

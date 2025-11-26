@@ -1,4 +1,4 @@
-<!-- src/views/ProjectsView.vue - REFACTORED VERSION -->
+<!-- src/views/ProjectsView.vue -->
 <template>
   <div class="min-h-screen bg-black text-white relative">
     <!-- Background Grid - fixed position -->
@@ -23,7 +23,6 @@
     <!-- Projects Section -->
     <section ref="projectsSection" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid grid-cols-1 gap-10">
-        <!-- Using ProjectCard component instead of inline code -->
         <ProjectCard
           v-for="(project, index) in projects"
           :key="index"
@@ -33,6 +32,7 @@
         />
       </div>
     </section>
+    <div class="h-24 bg-gradient-to-b from-black to-gray-900"></div>
 
     <!-- Call To Action -->
     <CallToActionSection />
@@ -62,7 +62,6 @@ export default {
           description: 'Développement pour une entreprise de VLIB d\'une application mobile pour la gestion de leur parc',
           thumbnail: '/assets/img/VLIB.png',
           technologies: ['Android Studio', 'Java', 'PHP', 'MySQL'],
-          demo: '/',
           github: 'https://github.com/acoclez/VLIB'
         },
         {
@@ -70,7 +69,6 @@ export default {
           description: 'Développement d\'un site pour la maison des ligues de Lorraine',
           thumbnail: '/assets/img/M2L.png',
           technologies: ['PHP', 'MySQL'],
-          demo: '/',
           github: 'https://github.com/acoclez/AP-2.5-M2L'
         },
         {
@@ -78,13 +76,34 @@ export default {
           description: 'Outil de gestion poussé pour les agriculteurs',
           thumbnail: '/assets/img/AGRIPLUS.png',
           technologies: ['Laravel', 'Vue', 'MySQL', 'Ionic'],
+        },
+        {
+          title: 'Portfolio',
+          description: 'Portfolio pour exposer mon profil',
+          thumbnail: '/assets/img/portfolio.png',
+          technologies: ['Vue', 'Tailwind'],
+          github:'https://github.com/acoclez/portfolio',
           demo: '/'
+        },
+        {
+          title: 'XoDrip',
+          description: 'Outil de preview de customisation de profil pour le jeu Crossout',
+          thumbnail: '/assets/img/xodrip.png',
+          technologies: ['Svelte', 'Tailwind'],
+          github: 'https://github.com/acoclez/XoDrip',
+          demo: 'https://xodrip.netlify.app'
+        },
+                {
+          title: 'XoTranslate',
+          description: 'Application pour la traduction automatique de discussion pour le jeu Crossout',
+          thumbnail: '/assets/img/XoTranslate.png',
+          technologies: ['Javascript', 'Electron'],
+          github: 'https://github.com/acoclez/XoTranslate',
         }
       ]
     }
   },
   mounted() {
-    // Hero animations
     gsap.to(this.$refs.pageTitle, {
       opacity: 1,
       y: 0,
@@ -99,8 +118,6 @@ export default {
       delay: 0.4
     });
 
-    // Project cards animations
-    // Access the root elements of the ProjectCard components
     this.$nextTick(() => {
       const cardElements = this.projectCards.map(card => card.$el);
       
@@ -118,8 +135,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* Import home styles for reusing definitions */
-@import '@/assets/css/home-styles.css';
-</style>

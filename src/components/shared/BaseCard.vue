@@ -245,20 +245,10 @@ export default {
 </script>
 
 <style scoped>
-/* L-decorations and animations come from home-styles.css */
-
 /* Glass effect */
 .glass {
   background: rgba(17, 17, 17, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-/* Ensure border animation works */
-.border-l-4.border-yellow-400,
-.border-t-4.border-yellow-400,
-.border-r-4.border-yellow-400,
-.border-b-4.border-yellow-400 {
-  animation: borderPulse 4s infinite;
 }
 </style>

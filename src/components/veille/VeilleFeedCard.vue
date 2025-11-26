@@ -3,14 +3,15 @@
     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-6">
         <h2 class="text-2xl font-bold mb-6">{{ title }}</h2>
 
-        <div v-if="isLoading" class="flex justify-center py-8">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-        </div>
+        <!-- Loading state -->
+        <LoadingSpinner v-if="isLoading" message="Chargement des articles..." />
 
+        <!-- Error state -->
         <div v-else-if="error" class="p-4 bg-red-900 bg-opacity-30 text-red-300 rounded-lg">
             {{ error }}
         </div>
 
+        <!-- Content -->
         <div v-else class="space-y-4">
             <div v-for="(item, index) in items" :key="index"
                 class="bg-gray-700 bg-opacity-50 rounded-lg overflow-hidden hover:bg-opacity-70 transition">
@@ -34,8 +35,13 @@
 </template>
   
 <script>
+import LoadingSpinner from '@/components/shared/LoadingSpinner.vue';
+
 export default {
     name: 'VeilleFeedCard',
+    components: {
+        LoadingSpinner
+    },
     props: {
         title: {
             type: String,

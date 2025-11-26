@@ -1,4 +1,4 @@
-<!-- src/components/home/CallToActionSection.vue - REFACTORED -->
+<!-- src/components/home/CallToActionSection.vue -->
 <template>
     <section ref="ctaSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
         <div class="max-w-4xl mx-auto text-center transform translate-y-10 opacity-0 relative">
@@ -13,7 +13,7 @@
                 Retrouvez mes travaux et projets sur GitHub.
             </p>
             <div class="w-24 h-1 mx-auto mb-8 bg-yellow-400"></div>
-            <a href="https://github.com/" target="_blank"
+            <a href="https://github.com/acoclez" target="_blank"
                 class="inline-flex items-center px-8 py-4 rounded-none bg-yellow-400 hover:bg-yellow-300 text-black font-bold transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                 <Icon icon="mdi:github" class="w-5 h-5 mr-2" />
                 Voir sur GitHub
@@ -35,7 +35,6 @@ export default {
         Icon
     },
     mounted() {
-        // CTA section animation
         gsap.to(this.$refs.ctaSection.firstChild, {
             scrollTrigger: {
                 trigger: this.$refs.ctaSection,
@@ -48,8 +47,3 @@ export default {
     }
 }
 </script>
-  
-<style scoped>
-/* All L-decoration styles now come from home-styles.css */
-/* No component-specific styles needed */
-</style>

@@ -1,4 +1,4 @@
-<!-- src/components/contact/ContactForm.vue - REFACTORED -->
+<!-- src/components/contact/ContactForm.vue -->
 <template>
     <div class="w-full">
       <div class="bg-gray-900 p-8 rounded-none shadow-2xl overflow-hidden border-l-4 border-yellow-400 relative">
@@ -15,9 +15,9 @@
             <div class="input-group">
               <div class="relative">
                 <input v-model="form.firstName" type="text" id="firstName" required
-                  class="input peer" />
+                  class="input peer" placeholder=" " />
                 <label for="firstName" 
-                  class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                  class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-left peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Prénom
                 </label>
               </div>
@@ -25,9 +25,9 @@
             <div class="input-group">
               <div class="relative">
                 <input v-model="form.lastName" type="text" id="lastName" required
-                  class="input peer" />
+                  class="input peer" placeholder=" " />
                 <label for="lastName" 
-                  class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                  class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-left peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Nom
                 </label>
               </div>
@@ -37,9 +37,9 @@
           <div class="input-group">
             <div class="relative">
               <input v-model="form.email" type="email" id="email" required
-                class="input peer" />
+                class="input peer" placeholder=" " />
               <label for="email" 
-                class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-left peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Email
               </label>
             </div>
@@ -48,9 +48,9 @@
           <div class="input-group">
             <div class="relative">
               <textarea v-model="form.message" id="message" rows="6" required
-                class="input resize-y peer"></textarea>
+                class="input resize-y peer" placeholder=" "></textarea>
               <label for="message" 
-                class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-[0] peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                class="absolute text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-4 z-10 origin-left peer-focus:text-yellow-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Message
               </label>
             </div>
@@ -58,9 +58,13 @@
   
           <button type="submit" :disabled="isSubmitting"
             class="btn btn-primary w-full relative overflow-hidden group">
-            <span class="relative z-10 flex items-center justify-center">
+            <span v-if="!isSubmitting" class="relative z-10 flex items-center justify-center">
               <Icon icon="mdi:send" class="inline-block mr-2" width="18" />
-              {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer' }}
+              Envoyer
+            </span>
+            <span v-else class="relative z-10 flex items-center justify-center">
+              <LoadingSpinner size="20px" inline />
+              <span class="ml-2">Envoi en cours...</span>
             </span>
             <div class="absolute inset-0 h-full w-0 bg-black bg-opacity-20 transition-all duration-300 group-hover:w-full"></div>
           </button>
@@ -86,11 +90,13 @@
   <script>
   import { gsap } from 'gsap';
   import { Icon } from '@iconify/vue';
+  import LoadingSpinner from '@/components/shared/LoadingSpinner.vue';
   
   export default {
     name: 'ContactForm',
     components: {
-      Icon
+      Icon,
+      LoadingSpinner
     },
     data() {
       return {
@@ -108,7 +114,6 @@
       }
     },
     mounted() {
-      // Input fields animation
       gsap.from('.input-group', {
         y: 20,
         opacity: 0,
@@ -117,7 +122,6 @@
         delay: 0.3
       });
   
-      // Button animation
       gsap.from('button', {
         y: 20,
         opacity: 0,
@@ -131,24 +135,19 @@
         this.formStatus = { message: '', type: '' }
   
         try {
-          // Simulation d'envoi de formulaire
-          // Dans un environnement réel, utiliser un service de backend ou Netlify Forms
           await new Promise(resolve => setTimeout(resolve, 1500))
   
-          // Simuler une réponse de succès
           this.formStatus = {
             message: 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.',
             type: 'success'
           }
   
-          // Animation success message
           gsap.from('.alert-success', {
             y: 20,
             opacity: 0,
             duration: 0.5
           });
   
-          // Réinitialiser le formulaire
           this.form = {
             firstName: '',
             lastName: '',
@@ -161,7 +160,6 @@
             type: 'error'
           }
   
-          // Animation error message
           gsap.from('.alert-error', {
             y: 20,
             opacity: 0,
@@ -176,21 +174,11 @@
   </script>
   
   <style scoped>
-  /* All L-decoration styles now come from home-styles.css */
-  /* borderPulse animation now in home-styles.css */
-  /* input and alert styles now in main.css */
-  
   /* Floating label styles */
   input:focus ~ label,
   input:not(:placeholder-shown) ~ label,
   textarea:focus ~ label,
   textarea:not(:placeholder-shown) ~ label {
     @apply transform -translate-y-6 scale-75 text-yellow-400;
-  }
-  
-  /* Add a placeholder to make the floating label work */
-  input::placeholder,
-  textarea::placeholder {
-    color: transparent;
   }
   </style>

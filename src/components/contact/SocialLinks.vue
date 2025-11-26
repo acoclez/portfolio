@@ -1,3 +1,4 @@
+<!-- src/components/contact/SocialLinks.vue -->
 <template>
     <div class="w-full">
         <div class="bg-gray-900 p-8 rounded-none shadow-2xl border-t-4 border-yellow-400 relative">
@@ -27,7 +28,7 @@
 
             <!-- CV Download Button -->
             <div class="mt-8 pt-8 border-t border-gray-800">
-                <a href="/assets/cv.pdf" target="_blank"
+                <a href="/assets/CV_AC.pdf" target="_blank"
                     class="flex items-center justify-center w-full py-3 px-6 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none border-b-2 border-yellow-400 transition transform hover:-translate-y-1 group">
                     <Icon icon="mdi:file-document" class="mr-2 text-yellow-400 group-hover:animate-bounce" width="24" />
                     Télécharger mon CV
@@ -51,33 +52,18 @@ export default {
             socialLinks: [
                 {
                     name: 'GitHub',
-                    url: 'https://github.com/',
+                    url: 'https://github.com/acoclez',
                     icon: 'mdi:github'
                 },
                 {
                     name: 'GitLab',
-                    url: 'https://gitlab.com/',
+                    url: 'https://gitlab.com/ACoclez',
                     icon: 'mdi:gitlab'
                 },
                 {
-                    name: 'Twitter',
-                    url: 'https://twitter.com/',
-                    icon: 'mdi:twitter'
-                },
-                {
                     name: 'LinkedIn',
-                    url: 'https://linkedin.com/',
+                    url: 'https://www.linkedin.com/in/antoine-coclez-3a6833304/',
                     icon: 'mdi:linkedin'
-                },
-                {
-                    name: 'Stack Overflow',
-                    url: 'https://stackoverflow.com/',
-                    icon: 'mdi:stack-overflow'
-                },
-                {
-                    name: 'Medium',
-                    url: 'https://medium.com/',
-                    icon: 'mdi:medium'
                 }
             ]
         };
@@ -111,8 +97,6 @@ export default {
 </script>
   
 <style scoped>
-/* borderPulse animation now in home-styles.css */
-
 .social-link {
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -133,6 +117,4 @@ export default {
         transform: translateY(-6px);
     }
 }
-
-/* L-decoration styles now come from home-styles.css */
 </style>

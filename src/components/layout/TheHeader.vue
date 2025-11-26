@@ -1,5 +1,5 @@
+<!-- src/components/layout/TheHeader.vue -->
 <template>
-  <!-- Remove the header element entirely and just use a nav -->
   <nav ref="navIsland" class="fixed left-1/2 transform -translate-x-1/2 top-4 z-50">
     <div class="bg-black px-8 py-4 rounded-none border-l-2 border-black shadow-xl flex items-center gap-6 relative">
       <!-- L decoration top left -->
@@ -30,8 +30,7 @@ export default {
         { name: 'Accueil', path: '/' },
         { name: 'A propos', path: '/about' },
         { name: 'Projets', path: '/projects' },
-        { name: 'Veille', path: '/veille' },
-        // { name: 'Contact', path: '/contact' }
+        { name: 'Veille', path: '/veille' }
       ]
     }
   },
@@ -41,7 +40,6 @@ export default {
     }
   },
   mounted() {
-    // Entrance animation for the island
     gsap.from(this.$refs.navIsland, {
       y: -50,
       opacity: 0,
@@ -49,7 +47,6 @@ export default {
       ease: "power3.out"
     });
 
-    // Animate the highlight square when it appears
     gsap.fromTo('.nav-highlight',
       { scale: 0, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.5, ease: "back.out" }
@@ -59,12 +56,7 @@ export default {
 </script>
 
 <style scoped>
-/* L-decorations now come from home-styles.css */
-
-/* Active link styles */
 .nav-highlight {
   animation: borderPulse 4s infinite;
 }
-
-/* borderPulse animation now in home-styles.css */
 </style>

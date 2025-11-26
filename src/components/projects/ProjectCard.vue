@@ -1,4 +1,4 @@
-<!-- src/components/projects/ProjectCard.vue - IMPROVED VERSION -->
+<!-- src/components/projects/ProjectCard.vue -->
 <template>
   <div
     class="bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
@@ -70,13 +70,12 @@ export default {
       type: Object,
       required: true,
       validator: (value) => {
-        return value.title && value.description && value.thumbnail;
+        return value.title && value.description;
       }
     }
   },
   methods: {
     getTechIcon(tech) {
-      // Normalize tech name for case-insensitive matching
       const techLower = tech.toLowerCase();
       
       const iconMap = {
@@ -130,7 +129,8 @@ export default {
         'gsap': 'mdi:animation-play',
         'api': 'mdi:api',
         'rest': 'mdi:api',
-        'graphql': 'mdi:graphql'
+        'graphql': 'mdi:graphql',
+        'electron': 'mdi:electron-framework'
       };
       
       return iconMap[techLower] || 'mdi:code-tags';
@@ -138,49 +138,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* L decoration styles */
-.l-decoration-small-reversed {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-}
-
-.l-decoration-small-reversed::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #F7DE3D;
-  right: 0;
-  bottom: 0;
-}
-
-.l-decoration-small-reversed::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #F7DE3D;
-  right: 0;
-  bottom: 0;
-}
-
-/* Animation for the border */
-.border-l-4.border-yellow-400 {
-  animation: borderPulse 4s infinite;
-}
-
-@keyframes borderPulse {
-  0% {
-    border-color: #F7DE3D;
-  }
-  50% {
-    border-color: #FDE68A;
-  }
-  100% {
-    border-color: #F7DE3D;
-  }
-}
-</style>

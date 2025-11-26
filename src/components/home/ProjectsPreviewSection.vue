@@ -1,4 +1,4 @@
-<!-- src/components/home/ProjectsPreviewSection.vue - REFACTORED -->
+<!-- src/components/home/ProjectsPreviewSection.vue -->
 <template>
     <section ref="projectsSection" class="py-24 px-4 bg-black relative">
         <div class="max-w-6xl mx-auto relative">
@@ -125,7 +125,6 @@ export default {
         Icon
     },
     mounted() {
-        // Create animation timeline
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: this.$refs.projectsSection,
@@ -156,8 +155,3 @@ export default {
     }
 }
 </script>
-  
-<style scoped>
-/* L-decoration styles now come from home-styles.css */
-/* borderPulse animation now in home-styles.css */
-</style>
