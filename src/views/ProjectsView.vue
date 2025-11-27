@@ -98,7 +98,7 @@ export default {
           description: 'Application pour la traduction automatique de discussion pour le jeu Crossout',
           thumbnail: '/assets/img/XoTranslate.png',
           technologies: ['Javascript', 'Electron'],
-          github: 'https://github.com/acoclez/XoTranslate',
+          github: 'https://github.com/vamp-xo/XoTranslate',
         }
       ]
     }
