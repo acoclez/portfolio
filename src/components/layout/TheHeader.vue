@@ -40,12 +40,13 @@ export default {
     }
   },
   mounted() {
-  gsap.from(this.$refs.navIsland, {
-    y: -50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  });
+    gsap.from(this.$refs.navIsland, {
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      clearProps: "all"
+    });
 
     gsap.fromTo('.nav-highlight',
       { scale: 0, opacity: 0 },
