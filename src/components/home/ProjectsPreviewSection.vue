@@ -113,11 +113,8 @@
 </template>
   
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useAnimations } from '@/composables/useAnimations';
 
 export default {
     name: 'ProjectsPreviewSection',
@@ -125,33 +122,14 @@ export default {
         Icon
     },
     mounted() {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: this.$refs.projectsSection,
-                start: 'top 80%'
-            }
-        });
+        const { animateSection } = useAnimations();
 
-        tl.to(this.$refs.projectsTitle, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6
-        })
-            .to(this.$refs.projectsDesc, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4')
-            .to(this.$refs.projectCard, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8
-            }, '-=0.4')
-            .to(this.$refs.projectsCta, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4');
+        animateSection(this.$refs.projectsSection, {
+            title: this.$refs.projectsTitle,
+            description: this.$refs.projectsDesc,
+            content: this.$refs.projectCard,
+            cta: this.$refs.projectsCta
+        });
     }
 }
 </script>

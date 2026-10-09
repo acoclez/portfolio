@@ -213,7 +213,7 @@ export default {
     roundedClass() {
       const rounded = {
         none: 'rounded-none',
-        sm: 'rounded-sm',
+        sm: 'rounded-xs',
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full'
@@ -225,7 +225,7 @@ export default {
       if (this.shadow === 'none') return '';
       
       const shadows = {
-        sm: 'shadow-sm',
+        sm: 'shadow-xs',
         md: 'shadow-md',
         lg: 'shadow-lg',
         xl: 'shadow-xl',

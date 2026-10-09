@@ -32,7 +32,7 @@
         />
       </div>
     </section>
-    <div class="h-24 bg-gradient-to-b from-black to-gray-900"></div>
+    <div class="h-24 bg-linear-to-b from-black to-gray-900"></div>
 
     <!-- Call To Action -->
     <CallToActionSection />
@@ -40,12 +40,9 @@
 </template>
 
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useAnimations } from '@/composables/useAnimations';
 import ProjectCard from '@/components/projects/ProjectCard.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'ProjectsView',
@@ -104,33 +101,14 @@ export default {
     }
   },
   mounted() {
-    gsap.to(this.$refs.pageTitle, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.2
-    });
+    const { animateHero, animateOnScroll } = useAnimations();
 
-    gsap.to(this.$refs.pageDesc, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.4
-    });
+    animateHero([this.$refs.pageTitle, this.$refs.pageDesc]);
 
     this.$nextTick(() => {
       const cardElements = this.projectCards.map(card => card.$el);
-      
-      gsap.to(cardElements, {
-        scrollTrigger: {
-          trigger: this.$refs.projectsSection,
-          start: "top 80%"
-        },
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8
-      });
+
+      animateOnScroll(cardElements, this.$refs.projectsSection, { stagger: 0.2 });
     });
   }
 }

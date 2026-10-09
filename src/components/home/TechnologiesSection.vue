@@ -1,7 +1,7 @@
 <!-- src/components/home/TechnologiesSection.vue -->
 <template>
-    <section ref="techSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
-        <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent"></div>
+    <section ref="techSection" class="py-24 px-4 bg-linear-to-b from-gray-900 to-black relative">
+        <div class="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-black to-transparent"></div>
         <div class="max-w-6xl mx-auto relative">
             <!-- L top left -->
             <div class="absolute top-0 left-0 l-decoration"></div>
@@ -23,7 +23,7 @@
                 class="grid grid-cols-2 md:grid-cols-3 gap-4 transform translate-y-20 opacity-0 max-w-3xl mx-auto">
                 <div v-for="tech in technologies" :key="tech.name"
                     class="tech-item bg-gray-800 py-2 px-3 flex items-center transition-all duration-300 border-l-2 border-transparent hover:border-yellow-400 transform hover:-translate-y-1 hover:shadow-lg">
-                    <Icon :icon="tech.icon" width="24" height="24" class="mr-3 flex-shrink-0 text-yellow-400" />
+                    <Icon :icon="tech.icon" width="24" height="24" class="mr-3 shrink-0 text-yellow-400" />
                     <span class="font-medium text-sm whitespace-nowrap">{{ tech.name }}</span>
                 </div>
             </div>
@@ -40,11 +40,9 @@
 </template>
   
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
-
-gsap.registerPlugin(ScrollTrigger);
+import { technologies } from '@/data/technologies';
+import { useAnimations } from '@/composables/useAnimations';
 
 export default {
     name: 'TechnologiesSection',
@@ -53,62 +51,21 @@ export default {
     },
     data() {
         return {
-            technologies: [
-                { name: 'PHP', icon: 'mdi:language-php' },
-                { name: 'HTML', icon: 'mdi:language-html5' },
-                { name: 'CSS', icon: 'mdi:language-css3' },
-                { name: 'JavaScript', icon: 'mdi:language-javascript' },
-                { name: 'TypeScript', icon: 'mdi:language-typescript' },
-                { name: 'Git', icon: 'mdi:git' },
-                { name: 'GitHub', icon: 'mdi:github' },
-                { name: 'MySQL', icon: 'mdi:database' },
-                { name: 'REST', icon: 'mdi:api' },
-                { name: 'Symfony', icon: 'mdi:symfony' },
-                { name: 'Laravel', icon: 'mdi:laravel' },
-                { name: 'Vue.js', icon: 'mdi:vuejs' },
-                { name: 'Nuxt.js', icon: 'mdi:nuxt' },
-                { name: 'Tailwind', icon: 'mdi:tailwind' },
-                { name: 'Docker', icon: 'mdi:docker' },
-                { name: 'Linux', icon: 'mdi:linux' },
-            ]
+            technologies
         }
     },
     mounted() {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: this.$refs.techSection,
-                start: 'top 80%'
-            }
+        const { animateSection, animateOnScroll } = useAnimations();
+
+        animateSection(this.$refs.techSection, {
+            title: this.$refs.techTitle,
+            description: this.$refs.techDesc,
+            content: this.$refs.techGrid,
+            cta: this.$refs.techCta
         });
 
-        tl.to(this.$refs.techTitle, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6
-        })
-            .to(this.$refs.techDesc, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4')
-            .to(this.$refs.techGrid, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8
-            }, '-=0.4')
-            .to(this.$refs.techCta, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4');
-
-        gsap.to('.tech-item', {
-            scrollTrigger: {
-                trigger: this.$refs.techGrid,
-                start: 'top 70%'
-            },
-            opacity: 1,
-            y: 0,
+        animateOnScroll('.tech-item', this.$refs.techGrid, {
+            start: 'top 70%',
             stagger: 0.1,
             duration: 0.5,
             ease: 'power1.out'

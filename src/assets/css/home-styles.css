@@ -181,55 +181,6 @@
 }
 
 /* =================================================================
-   BACKGROUND COLORS
-   ================================================================= */
-
-.bg-black {
-    background-color: #000;
-}
-
-.bg-gray-900 {
-    background-color: #111;
-}
-
-.bg-gray-800 {
-    background-color: #222;
-}
-
-/* =================================================================
-   THEME COLORS - Using CSS Variables
-   ================================================================= */
-
-.text-yellow-400 {
-    color: var(--color-accent, #F7DE3D);
-}
-
-.bg-yellow-400 {
-    background-color: var(--color-accent, #F7DE3D);
-}
-
-.bg-yellow-300 {
-    background-color: var(--color-accent-hover, #FDE68A);
-}
-
-.border-yellow-400 {
-    border-color: var(--color-accent, #F7DE3D);
-}
-
-/* Hover variants */
-.hover\:bg-yellow-300:hover {
-    background-color: var(--color-accent-hover, #FDE68A);
-}
-
-.hover\:text-yellow-400:hover {
-    color: var(--color-accent, #F7DE3D);
-}
-
-.hover\:border-yellow-400:hover {
-    border-color: var(--color-accent, #F7DE3D);
-}
-
-/* =================================================================
    ANIMATIONS
    ================================================================= */
 
@@ -320,15 +271,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-/* =================================================================
-   SECTION TRANSITIONS
-   ================================================================= */
-
-section {
-    position: relative;
-    transition: background-color 0.8s ease;
 }
 
 /* =================================================================

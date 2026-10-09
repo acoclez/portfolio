@@ -1,4 +1,4 @@
-<!-- src/views/AboutView.vue - PHASE 2 REFACTORED -->
+<!-- src/views/AboutView.vue -->
 <template>
   <div class="min-h-screen bg-black text-white relative">
     <!-- Background Grid - fixed position -->
@@ -8,7 +8,7 @@
     <section ref="heroSection" class="py-24 px-4 text-center relative">
       <div class="max-w-4xl mx-auto">
         <!-- L top left -->
-        <div class="absolute top-20 left-20 md:top-25 md:left-24 l-decoration"></div>
+        <div class="absolute top-20 left-20 md:left-24 l-decoration"></div>
 
         <!-- L bottom right reversed -->
         <div class="absolute bottom-20 right-20 md:bottom-24 md:right-24 l-decoration-reversed"></div>
@@ -49,7 +49,7 @@
     </section>
 
     <!-- Technologies Section -->
-    <section ref="techSection" class="py-16 px-4 bg-gradient-to-b from-black to-gray-900 relative">
+    <section ref="techSection" class="py-16 px-4 bg-linear-to-b from-black to-gray-900 relative">
       <div class="max-w-6xl mx-auto">
         <div class="relative flex flex-col items-center mb-14">
           <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
@@ -66,7 +66,7 @@
           class="grid grid-cols-2 md:grid-cols-3 gap-4 transform translate-y-20 opacity-0 max-w-3xl mx-auto">
           <div v-for="tech in technologies" :key="tech.name"
             class="tech-item bg-gray-800 py-2 px-3 flex items-center transition-all duration-300 border-l-2 border-transparent hover:border-yellow-400 transform hover:-translate-y-1 hover:shadow-lg">
-            <Icon :icon="tech.icon" width="24" height="24" class="mr-3 flex-shrink-0 text-yellow-400" />
+            <Icon :icon="tech.icon" width="24" height="24" class="mr-3 shrink-0 text-yellow-400" />
             <span class="font-medium text-sm whitespace-nowrap">{{ tech.name }}</span>
           </div>
         </div>
@@ -81,6 +81,7 @@
 <script>
 import { Icon } from '@iconify/vue';
 import { useAnimations } from '@/composables/useAnimations';
+import { technologies } from '@/data/technologies';
 import BaseCard from '@/components/shared/BaseCard.vue';
 import AboutIntro from '@/components/about/AboutIntro.vue';
 import SocialLinks from '@/components/contact/SocialLinks.vue';
@@ -95,99 +96,34 @@ export default {
     SocialLinks,
     CallToActionSection
   },
-  setup() {
-    // Use animations composable
-    const {
-      animateHero,
-      animateOnScroll,
-      animateCards,
-      createTimeline
-    } = useAnimations();
-
-    return {
-      animateHero,
-      animateOnScroll,
-      animateCards,
-      createTimeline
-    };
-  },
   data() {
     return {
-      technologies: [
-        { name: 'PHP', icon: 'mdi:language-php' },
-        { name: 'HTML', icon: 'mdi:language-html5' },
-        { name: 'CSS', icon: 'mdi:language-css3' },
-        { name: 'JavaScript', icon: 'mdi:language-javascript' },
-        { name: 'TypeScript', icon: 'mdi:language-typescript' },
-        { name: 'Git', icon: 'mdi:git' },
-        { name: 'GitHub', icon: 'mdi:github' },
-        { name: 'MySQL', icon: 'mdi:database' },
-        { name: 'REST', icon: 'mdi:api' },
-        { name: 'Symfony', icon: 'mdi:symfony' },
-        { name: 'Laravel', icon: 'mdi:laravel' },
-        { name: 'Vue.js', icon: 'mdi:vuejs' },
-        { name: 'Nuxt.js', icon: 'mdi:nuxt' },
-        { name: 'Tailwind', icon: 'mdi:tailwind' },
-        { name: 'Docker', icon: 'mdi:docker' },
-        { name: 'Linux', icon: 'mdi:linux' },
-      ]
+      technologies
     }
   },
   mounted() {
-    // Hero animations using composable
-    this.animateHero(this.$refs.pageTitle, this.$refs.pageDesc);
+    const { animateHero, animateOnScroll, animateSection } = useAnimations();
+
+    animateHero([this.$refs.pageTitle, this.$refs.pageDesc]);
 
     // About section animations
-    this.animateOnScroll(
-      this.$refs.aboutContent,
-      this.$refs.aboutSection,
-      { duration: 0.8 }
-    );
+    animateOnScroll(this.$refs.aboutContent, this.$refs.aboutSection, { ease: 'power2.out' });
+    animateOnScroll(this.$refs.socialContent, this.$refs.aboutSection, { ease: 'power2.out', delay: 0.2 });
 
-    // Social links animation
-    this.animateOnScroll(
-      this.$refs.socialContent,
-      this.$refs.aboutSection,
-      { duration: 0.8, delay: 0.2 }
-    );
-
-    // Tech section animations using timeline
-    this.createTimeline([
-      {
-        targets: this.$refs.techTitle,
-        props: { opacity: 1, y: 0, duration: 0.6 },
-        label: 'title'
-      },
-      {
-        targets: this.$refs.techDesc,
-        props: { opacity: 1, y: 0, duration: 0.6 },
-        position: '-=0.4'
-      },
-      {
-        targets: this.$refs.techGrid,
-        props: { opacity: 1, y: 0, duration: 0.8 },
-        position: '-=0.4'
-      }
-    ], {
-      scrollTrigger: {
-        trigger: this.$refs.techSection,
-        start: 'top 80%'
-      }
+    // Tech section animations
+    animateSection(this.$refs.techSection, {
+      title: this.$refs.techTitle,
+      description: this.$refs.techDesc,
+      content: this.$refs.techGrid
     });
 
     // Tech items staggered animation
-    this.animateCards(
-      '.tech-item',
-      this.$refs.techGrid
-    );
+    animateOnScroll('.tech-item', this.$refs.techGrid, { stagger: 0.2 });
   }
 }
 </script>
 
 <style scoped>
-/* Import home styles for shared definitions */
-@import '@/assets/css/home-styles.css';
-
 /* Component-specific styles only */
 .tech-item {
   transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;

@@ -7,7 +7,7 @@
 
             <h2 class="text-2xl font-bold mb-6">Retrouvez-moi sur</h2>
             <div class="grid grid-cols-3 gap-4 mb-8">
-                <a v-for="(social, index) in socialLinks" :key="index" :href="social.url" target="_blank"
+                <a v-for="(social, index) in socialLinks" :key="index" :href="social.url" target="_blank" :aria-label="social.name"
                     class="social-link transform transition hover:scale-110 bg-gray-800 p-4 rounded-full hover:bg-gray-700 hover:shadow-lg hover:shadow-yellow-900/10 flex items-center justify-center">
                     <Icon :icon="social.icon" class="text-yellow-400" width="36" />
                 </a>

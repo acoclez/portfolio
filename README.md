@@ -1,24 +1,34 @@
-# portfolio-vue
+# portfolio
 
-## Project setup
+Portfolio d'Antoine Coclez — Vue 3, Vite, Tailwind CSS et GSAP, hébergé sur Netlify.
+
+## Installation
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Développement
+
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+## Build de production
+
 ```
 npm run build
+npm run preview
 ```
 
-### Lints and fixes files
+## Lint
+
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Veille
+
+Les flux de la page Veille sont récupérés par la fonction Netlify `netlify/functions/feed.mjs`
+(Laravel News et les releases de `laravel/framework`). En local, `npm run dev` et
+`npm run preview` servent cette même fonction, sans avoir besoin du CLI Netlify.

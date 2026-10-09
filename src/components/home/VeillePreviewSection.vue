@@ -1,6 +1,6 @@
 <!-- src/components/home/VeillePreviewSection.vue -->
 <template>
-    <section ref="veilleSection" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900 relative">
+    <section ref="veilleSection" class="py-24 px-4 bg-linear-to-b from-black to-gray-900 relative">
         <div class="max-w-6xl mx-auto relative">
             <!-- L top left -->
             <div class="absolute top-0 left-0 l-decoration"></div>
@@ -68,11 +68,8 @@
 </template>
   
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useAnimations } from '@/composables/useAnimations';
 
 export default {
     name: 'VeillePreviewSection',
@@ -80,34 +77,14 @@ export default {
         Icon
     },
     mounted() {
-        // Create animation timeline
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: this.$refs.veilleSection,
-                start: 'top 80%'
-            }
-        });
+        const { animateSection } = useAnimations();
 
-        tl.to(this.$refs.veilleTitle, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6
-        })
-            .to(this.$refs.veilleDesc, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4')
-            .to(this.$refs.veilleGrid, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8
-            }, '-=0.4')
-            .to(this.$refs.veilleCta, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6
-            }, '-=0.4');
+        animateSection(this.$refs.veilleSection, {
+            title: this.$refs.veilleTitle,
+            description: this.$refs.veilleDesc,
+            content: this.$refs.veilleGrid,
+            cta: this.$refs.veilleCta
+        });
     }
 }
 </script>

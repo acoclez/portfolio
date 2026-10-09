@@ -25,7 +25,7 @@
       <div ref="articlesTitle" class="text-center mb-16 transform translate-y-20 opacity-0">
         <h2 class="text-3xl font-bold mb-6">Mes analyses approfondies</h2>
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Découvrez mes réflexions sur les dernières évolutions de l'écosystème Spring
+          Découvrez mes réflexions sur les dernières évolutions de l'écosystème Laravel
         </p>
       </div>
 
@@ -211,30 +211,28 @@
             :items="feeds.releases"
             :isLoading="isLoading.releases"
             :error="error.releases"
-            feederUrl="https://feeder.co/discover/987229b0ac/laravel-news-com"
+            feederUrl="https://github.com/laravel/framework/releases"
+            linkLabel="Voir sur GitHub →"
           />
         </div>
       </div>
 
-      <div ref="springOverview" class="mt-16 transform translate-y-20 opacity-0">
+      <div ref="laravelOverview" class="mt-16 transform translate-y-20 opacity-0">
         <LaravelOverview />
       </div>
     </section>
-    <div class="h-24 bg-gradient-to-b from-black to-gray-900"></div>
+    <div class="h-24 bg-linear-to-b from-black to-gray-900"></div>
 
     <CallToActionSection />
   </div>
 </template>
 
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
+import { useAnimations } from '@/composables/useAnimations';
 import VeilleFeedCard from '@/components/veille/VeilleFeedCard.vue';
 import LaravelOverview from '@/components/veille/LaravelOverview.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'VeilleView',
@@ -261,169 +259,48 @@ export default {
     }
   },
   mounted() {
-    gsap.to(this.$refs.pageTitle, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.2
-    });
+    const { animateHero, animateOnScroll } = useAnimations();
 
-    gsap.to(this.$refs.pageDesc, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.4
-    });
+    animateHero([this.$refs.pageTitle, this.$refs.pageDesc]);
 
-    gsap.to(this.$refs.articlesTitle, {
-      scrollTrigger: {
-        trigger: this.$refs.articlesSection,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    });
+    animateOnScroll(this.$refs.articlesTitle, this.$refs.articlesSection);
 
-    gsap.to([this.$refs.article1, this.$refs.article2, this.$refs.article3], {
-      scrollTrigger: {
-        trigger: this.$refs.articlesSection,
-        start: "top 70%"
-      },
-      opacity: 1,
-      y: 0,
-      stagger: 0.2,
-      duration: 0.8,
-      delay: 0.3
-    });
+    animateOnScroll(
+      [this.$refs.article1, this.$refs.article2, this.$refs.article3],
+      this.$refs.articlesSection,
+      { start: 'top 70%', stagger: 0.2, delay: 0.3 }
+    );
 
-    gsap.to(this.$refs.feedCard1, {
-      scrollTrigger: {
-        trigger: this.$refs.feedsSection,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.2
-    });
+    animateOnScroll(this.$refs.feedCard1, this.$refs.feedsSection, { delay: 0.2 });
+    animateOnScroll(this.$refs.feedCard2, this.$refs.feedsSection, { delay: 0.4 });
+    animateOnScroll(this.$refs.laravelOverview, this.$refs.laravelOverview);
 
-    gsap.to(this.$refs.feedCard2, {
-      scrollTrigger: {
-        trigger: this.$refs.feedsSection,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay: 0.4
-    });
-
-    gsap.to(this.$refs.springOverview, {
-      scrollTrigger: {
-        trigger: this.$refs.springOverview,
-        start: "top 80%"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    });
-
-    this.fetchRSSFeed('laravel-news', 'news');
-    this.fetchRSSFeed('laravel-releases', 'releases');
+    this.fetchRSSFeed('news');
+    this.fetchRSSFeed('releases');
   },
   methods: {
-    async fetchRSSFeed(feedType, dataKey) {
-      this.isLoading[dataKey] = true;
-      this.error[dataKey] = null;
+    async fetchRSSFeed(feedName) {
+      this.isLoading[feedName] = true;
+      this.error[feedName] = null;
 
       try {
-        await new Promise(resolve => setTimeout(resolve, 800));
-
-        const newsMockItems = [
-          {
-            title: 'PHP 8.5 Released with Pipe Operator and New Array Functions',
-            link: 'https://laravel-news.com/php-8-5-0',
-            date: '2025-11-19T10:00:00Z',
-            author: 'Paul Redmond',
-            description: 'PHP 8.5 introduces the Pipe operator for chaining callables, native array_first() and array_last() functions, a new URI extension, and improved error handling capabilities.'
-          },
-          {
-            title: 'Laravel for the Rest of Us Book Launch',
-            link: 'https://laravel-news.com/laravel-for-the-rest-of-us',
-            date: '2025-11-18T14:30:00Z',
-            author: 'Pete Heslop',
-            description: 'New book by Pete Heslop helps non-technical teams understand Laravel development, bridging communication between developers and business stakeholders.'
-          },
-          {
-            title: 'Livewire 4 Beta: Major Changes and Upgrade Guide',
-            link: 'https://laraveldaily.com/post/livewire-4-beta',
-            date: '2025-11-13T09:15:00Z',
-            author: 'Laravel Daily',
-            description: 'Livewire 4 beta brings significant performance improvements, better Alpine.js integration, and streamlined syntax for building reactive Laravel interfaces.'
-          },
-          {
-            title: 'Laravel Cloud WebSockets: Managed Reverb Clusters',
-            link: 'https://laravel.com/blog/laravel-cloud-websockets',
-            date: '2025-11-13T11:20:00Z',
-            author: 'Laravel Team',
-            description: 'Launch real-time features with managed Laravel Reverb clusters on Laravel Cloud, offering up to 50% cost savings compared to third-party WebSocket services.'
-          },
-          {
-            title: 'Laravel Boost: AI-Powered Development Acceleration',
-            link: 'https://blog.laravel.com/laracon-us-2025-boost',
-            date: '2025-11-07T16:45:00Z',
-            author: 'Taylor Otwell',
-            description: 'Laravel Boost provides essential context for AI coding assistants to generate high-quality Laravel-specific code, accelerating development workflows significantly.'
-          }
-        ];
-
-        const releasesMockItems = [
-          {
-            title: 'Laracon US 2025: Major Announcements Recap',
-            link: 'https://blog.laravel.com/everything-we-announced-at-laracon-us-2025',
-            date: '2025-11-15T15:00:00Z',
-            author: 'Laravel Team',
-            description: 'New Laravel Forge redesign with instant provisioning via Laravel VPS, Laravel MCP library for AI integration, and Boost for AI-assisted development announced at Laracon US.'
-          },
-          {
-            title: 'Laravel 13 Preview: Q1 2026 Release Details',
-            link: 'https://medium.com/laravel-13-preview',
-            date: '2025-11-05T10:30:00Z',
-            author: 'Subhash Ladumor',
-            description: 'Laravel 13 will require PHP 8.3+, introduce new Reverb driver improvements, enhanced testing profiling, and updated Symfony components for better security.'
-          },
-          {
-            title: 'Laravel MCP: Model Context Protocol Library',
-            link: 'https://github.com/laravel/mcp',
-            date: '2025-11-01T13:00:00Z',
-            author: 'Laravel Team',
-            description: 'Build Model Context Protocols easily so Laravel apps can integrate seamlessly with AI chats and assistants, meeting users where they are.'
-          },
-          {
-            title: 'Livewire 4 Beta: Full-Stack Framework Evolution',
-            link: 'https://livewire.laravel.com/docs/v4',
-            date: '2025-10-28T12:00:00Z',
-            author: 'Caleb Porzio',
-            description: 'Livewire 4 beta includes performance optimizations, refined API, better Alpine.js synergy, and streamlined state management for reactive components.'
-          },
-          {
-            title: 'Laravel Coding with AI Agents: November 2025 Update',
-            link: 'https://laraveldaily.com/course/laravel-ai-agents',
-            date: '2025-10-20T08:00:00Z',
-            author: 'Povilas Korop',
-            description: 'Overview of using Cursor, Claude Code, and Codex CLI for Laravel projects in late 2025, covering best practices and workflow optimizations.'
-          }
-        ];
-
-        this.feeds[dataKey] = feedType === 'laravel-news' ? newsMockItems : releasesMockItems;
-
+        this.feeds[feedName] = await this.requestFeed(feedName);
       } catch (error) {
-        console.error(`Erreur de chargement du flux ${feedType}:`, error);
-        this.error[dataKey] = 'Impossible de charger les articles. Veuillez réessayer plus tard.';
+        console.error(`Erreur de chargement du flux ${feedName}:`, error);
+        this.error[feedName] = 'Impossible de charger les articles. Veuillez réessayer plus tard.';
       } finally {
-        this.isLoading[dataKey] = false;
+        this.isLoading[feedName] = false;
       }
+    },
+    async requestFeed(feedName) {
+      const response = await fetch(`/.netlify/functions/feed?name=${feedName}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const { items } = await response.json();
+      return items;
     }
   }
 }

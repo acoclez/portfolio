@@ -2,7 +2,7 @@
   <ErrorBoundary>
     <div class="min-h-screen flex flex-col bg-black">
       <TheHeader />
-      <main class="flex-grow pt-24">
+      <main class="grow pt-24">
         <router-view />
       </main>
       <TheFooter />

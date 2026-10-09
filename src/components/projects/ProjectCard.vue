@@ -1,7 +1,7 @@
 <!-- src/components/projects/ProjectCard.vue -->
 <template>
   <div
-    class="bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-all duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
+    class="bg-gray-900 overflow-hidden shadow-2xl border-l-4 border-yellow-400 transition-shadow duration-300 hover:shadow-yellow-900/20 hover:shadow-2xl">
     <div class="flex flex-col md:flex-row relative">
       <!-- L bottom right decoration -->
       <div class="absolute bottom-0 right-0 l-decoration-small-reversed"></div>

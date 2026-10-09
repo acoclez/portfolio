@@ -7,14 +7,14 @@
         <LoadingSpinner v-if="isLoading" message="Chargement des articles..." />
 
         <!-- Error state -->
-        <div v-else-if="error" class="p-4 bg-red-900 bg-opacity-30 text-red-300 rounded-lg">
+        <div v-else-if="error" class="p-4 bg-red-900/30 text-red-300 rounded-lg">
             {{ error }}
         </div>
 
         <!-- Content -->
         <div v-else class="space-y-4">
             <div v-for="(item, index) in items" :key="index"
-                class="bg-gray-700 bg-opacity-50 rounded-lg overflow-hidden hover:bg-opacity-70 transition">
+                class="bg-gray-700/50 rounded-lg overflow-hidden hover:bg-gray-700/70 transition">
                 <a :href="item.link" target="_blank" class="block p-4">
                     <h3 class="text-lg font-medium mb-2">{{ item.title }}</h3>
                     <div class="flex items-center text-sm text-gray-400 mb-3">
@@ -29,7 +29,7 @@
         </div>
 
         <a :href="feederUrl" target="_blank" class="inline-block mt-6 text-gray-400 hover:text-white transition">
-            Voir sur Feeder →
+            {{ linkLabel }}
         </a>
     </div>
 </template>
@@ -62,6 +62,10 @@ export default {
         feederUrl: {
             type: String,
             required: true
+        },
+        linkLabel: {
+            type: String,
+            default: 'Voir sur Feeder →'
         }
     },
     methods: {
@@ -73,7 +77,7 @@ export default {
                     month: 'long',
                     day: 'numeric'
                 }).format(date);
-            } catch (e) {
+            } catch {
                 return dateString;
             }
         }

@@ -46,7 +46,7 @@ export default {
   computed: {
     containerClass() {
       if (this.fullscreen) {
-        return 'fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center z-50';
+        return 'fixed inset-0 bg-black/90 flex flex-col items-center justify-center z-50';
       }
       if (this.inline) {
         return 'flex items-center justify-center';

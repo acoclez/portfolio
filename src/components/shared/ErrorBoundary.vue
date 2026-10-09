@@ -50,7 +50,7 @@ export default {
       hasError: false,
       errorMessage: '',
       errorStack: '',
-      isDev: process.env.NODE_ENV === 'development'
+      isDev: import.meta.env.DEV
     }
   },
   errorCaptured(err, instance, info) {

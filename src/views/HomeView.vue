@@ -20,7 +20,6 @@ import TechnologiesSection from '@/components/home/TechnologiesSection.vue';
 import ProjectsPreviewSection from '@/components/home/ProjectsPreviewSection.vue';
 import VeillePreviewSection from '@/components/home/VeillePreviewSection.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
-import '@/assets/css/home-styles.css';
 
 export default {
   name: 'HomeView',
@@ -33,22 +32,3 @@ export default {
   }
 }
 </script>
-
-<style>
-header {
-  background-color: transparent !important;
-  z-index: 10;
-  position: relative;
-  color: #ffffff !important;
-}
-
-/* Ensure links in header are visible */
-header a {
-  color: #ffffff !important;
-  transition: color 0.3s ease;
-}
-
-header a:hover,
-header a.router-link-active {
-  color: #F7DE3D !important;
-}</style>

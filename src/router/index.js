@@ -1,5 +1,6 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const routes = [
   {
@@ -34,20 +35,10 @@ const routes = [
       title: 'Antoine Coclez — Veille'
     }
   },
-  /*
-  {
-    path: '/contact',
-    name: 'contact',
-    component: () => import('../views/ContactView.vue'),
-    meta: {
-      title: 'Antoine Coclez — Contact'
-    }
-  },
-  */
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import(/* webpackChunkName: "404" */ '../views/NotFoundView.vue'),
+    component: () => import('../views/NotFoundView.vue'),
     meta: {
       title: '404 - Page non trouvée'
     }
@@ -63,9 +54,13 @@ const router = createRouter({
 })
 
 // Mise à jour du titre de la page
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
   document.title = to.meta.title || 'Antoine Coclez — Portfolio'
-  next()
+})
+
+// Les ScrollTriggers de la page quittée ne sont pas détruits par les composants
+router.beforeEach(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 
 export default router

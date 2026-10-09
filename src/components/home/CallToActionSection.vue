@@ -1,6 +1,6 @@
 <!-- src/components/home/CallToActionSection.vue -->
 <template>
-    <section ref="ctaSection" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black relative">
+    <section ref="ctaSection" class="py-24 px-4 bg-linear-to-b from-gray-900 to-black relative">
         <div class="max-w-4xl mx-auto text-center transform translate-y-10 opacity-0 relative">
             <!-- L top left -->
             <div class="absolute top-0 left-0 l-decoration"></div>
@@ -23,11 +23,8 @@
 </template>
   
 <script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/vue';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useAnimations } from '@/composables/useAnimations';
 
 export default {
     name: 'CallToActionSection',
@@ -35,15 +32,9 @@ export default {
         Icon
     },
     mounted() {
-        gsap.to(this.$refs.ctaSection.firstChild, {
-            scrollTrigger: {
-                trigger: this.$refs.ctaSection,
-                start: 'top 80%'
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1
-        });
+        const { animateOnScroll } = useAnimations();
+
+        animateOnScroll(this.$refs.ctaSection.firstChild, this.$refs.ctaSection, { duration: 1 });
     }
 }
 </script>
