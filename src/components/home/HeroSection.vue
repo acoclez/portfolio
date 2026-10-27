@@ -34,7 +34,7 @@
                     class="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Voir mes projets
                 </router-link>
-                <a href="/assets/CV_Antoine_COCLEZ.pdf.pdf" target="_blank"
+                <a href="/assets/CV_Antoine_COCLEZ.pdf" target="_blank"
                     class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none border-2 border-yellow-400 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Voir mon CV
                 </a>
