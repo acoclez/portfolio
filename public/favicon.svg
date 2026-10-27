@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#000000"/>
+  <path d="M8 24 V8 H24" fill="none" stroke="#F7DE3D" stroke-width="6" stroke-linecap="square"/>
+  <path d="M56 40 V56 H40" fill="none" stroke="#F7DE3D" stroke-width="6" stroke-linecap="square"/>
+  <text x="32" y="44" text-anchor="middle" font-family="ui-monospace, 'Cascadia Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="30" font-weight="700" fill="#ffffff">ac</text>
+</svg>
