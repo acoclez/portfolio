@@ -129,7 +129,7 @@ export const projects = [
       },
       {
         title: "Côté technique",
-        body: "Site entièrement statique, hébergé sur Netlify. Les animations d\'entrée et au défilement sont centralisées dans un composable GSAP réutilisé par toutes les pages."
+        body: "Site entièrement statique, hébergé sur Cloudflare. Les animations d\'entrée et au défilement sont centralisées dans un composable GSAP réutilisé par toutes les pages."
       }
     ]
   },
