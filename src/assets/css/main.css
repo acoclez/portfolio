@@ -6,6 +6,7 @@
 
 /* Custom element defaults come before Tailwind's preflight, as they did
    when Tailwind was injected after this file by its CDN script */
+@import '@fontsource-variable/inter';
 @import 'tailwindcss/theme.css' layer(theme);
 @import './base.css' layer(base);
 @import 'tailwindcss/preflight.css' layer(base);

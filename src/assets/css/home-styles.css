@@ -2,8 +2,35 @@
 
 /* Background grid */
 .dot-grid {
-    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 30px 30px;
+    opacity: 0.5;
+    /* Strongest at the top of the viewport, fading out towards the bottom, as if lit from above */
+    -webkit-mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 100%);
+    mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 100%);
+}
+
+/* Soft accent glow behind a section's heading, instead of grey gradient bands */
+.section-glow {
+    isolation: isolate;
+}
+
+.section-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 60% at 50% 25%, rgba(247, 222, 61, 0.07), transparent 70%);
+    /* Fade the glow in and out vertically so it never produces a hard edge at the section boundary */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+}
+
+/* Dissolve decorative shapes before they reach the edge of their container */
+.fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
 }
 
 /* =================================================================
@@ -183,27 +210,6 @@
 /* =================================================================
    ANIMATIONS
    ================================================================= */
-
-/* Border pulse animation for cards */
-@keyframes borderPulse {
-    0% {
-        border-color: var(--color-accent, #F7DE3D);
-    }
-
-    50% {
-        border-color: var(--color-accent-hover, #FDE68A);
-    }
-
-    100% {
-        border-color: var(--color-accent, #F7DE3D);
-    }
-}
-
-/* Apply border pulse to cards */
-.border-l-4.border-yellow-400,
-.border-t-4.border-yellow-400 {
-    animation: borderPulse 4s infinite;
-}
 
 /* Fade in animation */
 @keyframes fadeIn {

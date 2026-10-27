@@ -1,15 +1,16 @@
 <template>
     <section ref="heroSection" class="relative min-h-screen flex items-center justify-center py-16 px-4 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col items-center z-10 relative">
-            <!-- L top left -->
-            <div class="absolute top-20 left-20 md:left-24 l-decoration"></div>
+        <!-- L decorations, anchored to the section so they never overlap the text -->
+        <div class="hidden md:block absolute top-28 left-8 lg:left-16 l-decoration z-10"></div>
+        <div class="hidden md:block absolute bottom-24 right-8 lg:right-16 l-decoration-reversed z-10"></div>
 
-            <!-- L bottom right reversed -->
-            <div class="absolute bottom-20 right-20 md:bottom-24 md:right-24 l-decoration-reversed"></div>
+        <div class="max-w-6xl mx-auto flex flex-col items-center z-10 relative">
 
             <h1 ref="heroTitle" class="text-5xl md:text-7xl font-bold mb-6 text-center opacity-0">Antoine Coclez</h1>
-            <p ref="heroSubtitle" class="text-2xl md:text-3xl text-gray-400 mb-10 text-center opacity-0">
-                Développeur Web</p>
+            <p ref="heroSubtitle" class="text-2xl md:text-3xl text-gray-400 mb-4 text-center opacity-0">
+                Développeur Web Full-stack</p>
+            <p ref="heroTagline" class="text-sm md:text-base font-semibold tracking-[0.2em] uppercase text-yellow-400 mb-10 text-center opacity-0">
+              PHP · Laravel · Vue.js - Agen, France</p>
 
             <!-- Social Links -->
             <div ref="socialLinks" class="flex justify-center space-x-6 mb-12 opacity-0">
@@ -21,7 +22,7 @@
                     class="transform transition hover:scale-110 text-yellow-400">
                     <Icon icon="mdi:gitlab" width="40" height="40" />
                 </a>
-                <a href="https://www.linkedin.com/in/antoine-coclez-3a6833304/" target="_blank" aria-label="LinkedIn"
+                <a href="https://www.linkedin.com/in/acoclez/" target="_blank" aria-label="LinkedIn"
                     class="transform transition hover:scale-110 text-yellow-400">
                     <Icon icon="mdi:linkedin" width="40" height="40" />
                 </a>
@@ -33,7 +34,7 @@
                     class="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Voir mes projets
                 </router-link>
-                <a href="/assets/CV_AC.pdf" target="_blank"
+                <a href="/assets/CV_Antoine_COCLEZ.pdf.pdf" target="_blank"
                     class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none border-2 border-yellow-400 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Voir mon CV
                 </a>
@@ -41,7 +42,7 @@
         </div>
 
         <!-- Geometric Background Elements -->
-        <div ref="bgElements" class="absolute top-0 left-0 w-full h-full pointer-events-auto">
+        <div ref="bgElements" class="fade-bottom absolute top-0 left-0 w-full h-full pointer-events-none">
             <div ref="square1"
                 class="absolute top-0 right-0 w-40 h-40 md:w-80 md:h-80 border-8 border-yellow-400 opacity-20">
             </div>
@@ -81,7 +82,7 @@ export default {
 
         // Hero section animations
         animateHero(
-            [this.$refs.heroTitle, this.$refs.heroSubtitle, this.$refs.socialLinks, this.$refs.ctaButtons],
+            [this.$refs.heroTitle, this.$refs.heroSubtitle, this.$refs.heroTagline, this.$refs.socialLinks, this.$refs.ctaButtons],
             { duration: 1 }
         );
 

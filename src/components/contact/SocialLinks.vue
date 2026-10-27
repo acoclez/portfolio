@@ -1,10 +1,7 @@
 <!-- src/components/contact/SocialLinks.vue -->
 <template>
-    <div class="w-full">
-        <div class="bg-gray-900 p-8 rounded-none shadow-2xl border-t-4 border-yellow-400 relative">
-            <!-- L top right decoration -->
-            <div class="absolute top-0 right-0 l-decoration-small-reversed top-right"></div>
-
+    <div class="w-full h-full">
+        <div class="h-full flex flex-col bg-gray-900 p-8 rounded-none shadow-2xl border-t-4 border-yellow-400 relative">
             <h2 class="text-2xl font-bold mb-6">Retrouvez-moi sur</h2>
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <a v-for="(social, index) in socialLinks" :key="index" :href="social.url" target="_blank" :aria-label="social.name"
@@ -20,15 +17,19 @@
 
                 <div class="flex flex-col space-y-4 mt-8">
                     <div class="contact-item flex items-center transform">
+                        <Icon icon="mdi:email-outline" class="text-yellow-400 mr-3 shrink-0" width="24" />
+                        <a href="mailto:contact@acoclez.dev" class="text-gray-300 hover:text-yellow-400 transition-standard break-all">contact@acoclez.dev</a>
+                    </div>
+                    <div class="contact-item flex items-center transform">
                         <Icon icon="mdi:map-marker" class="text-yellow-400 mr-3" width="24" />
-                        <span class="text-gray-300">Bordeaux, France</span>
+                        <span class="text-gray-300">Agen, France</span>
                     </div>
                 </div>
             </div>
 
-            <!-- CV Download Button -->
-            <div class="mt-8 pt-8 border-t border-gray-800">
-                <a href="/assets/CV_AC.pdf" target="_blank"
+            <!-- CV Download Button, pinned to the bottom so the card can stretch to the row height -->
+            <div class="mt-auto pt-8 border-t border-gray-800">
+                <a href="/assets/CV_Antoine_COCLEZ.pdf" target="_blank"
                     class="flex items-center justify-center w-full py-3 px-6 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none border-b-2 border-yellow-400 transition transform hover:-translate-y-1 group">
                     <Icon icon="mdi:file-document" class="mr-2 text-yellow-400 group-hover:animate-bounce" width="24" />
                     Télécharger mon CV
@@ -39,7 +40,6 @@
 </template>
   
 <script>
-import { gsap } from 'gsap';
 import { Icon } from '@iconify/vue';
 
 export default {
@@ -62,36 +62,11 @@ export default {
                 },
                 {
                     name: 'LinkedIn',
-                    url: 'https://www.linkedin.com/in/antoine-coclez-3a6833304/',
+                    url: 'https://www.linkedin.com/in/acoclez/',
                     icon: 'mdi:linkedin'
                 }
             ]
         };
-    },
-    mounted() {
-        gsap.from('.social-link', {
-            scale: 0,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.5,
-            delay: 0.3,
-            ease: "back.out(1.7)"
-        });
-
-        gsap.from('.contact-item', {
-            x: -20,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.5,
-            delay: 0.6
-        });
-
-        gsap.from('a.flex.items-center.justify-center.w-full', {
-            y: 20,
-            opacity: 0,
-            duration: 0.5,
-            delay: 0.8
-        });
     }
 };
 </script>

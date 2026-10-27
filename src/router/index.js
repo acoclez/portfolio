@@ -28,11 +28,12 @@ const routes = [
     }
   },
   {
-    path: '/veille',
-    name: 'veille',
-    component: () => import('../views/VeilleView.vue'),
+    path: '/projects/:slug',
+    name: 'project',
+    component: () => import('../views/ProjectDetailView.vue'),
+    props: true,
     meta: {
-      title: 'Antoine Coclez — Veille'
+      title: 'Antoine Coclez — Projet'
     }
   },
   {

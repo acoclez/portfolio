@@ -6,7 +6,7 @@
             <div class="text-gray-300 space-y-4">
                 <p>
                     Bonjour, je suis Antoine Coclez, jeune développeur informatique
-                    de 21 ans. Avec trois ans d'expérience en tant
+                    de 22 ans. Avec trois ans d'expérience en tant
                     que développeur web full-stack, je suis motivé à travailler sur
                     des solutions web dynamiques et innovantes.
                 </p>

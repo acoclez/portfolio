@@ -11,7 +11,7 @@
         Une erreur inattendue s'est produite. Ne vous inquiétez pas, vos données sont en sécurité.
       </p>
       
-      <div v-if="isDev" class="bg-gray-900 p-4 rounded-lg mb-8 text-left">
+      <div v-if="isDev" class="bg-gray-900 p-4 mb-8 text-left">
         <p class="text-sm text-red-400 font-mono">{{ errorMessage }}</p>
         <pre v-if="errorStack" class="text-xs text-gray-500 mt-2 overflow-auto">{{ errorStack }}</pre>
       </div>

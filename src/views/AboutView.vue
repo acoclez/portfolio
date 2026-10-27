@@ -1,26 +1,8 @@
 <!-- src/views/AboutView.vue -->
 <template>
-  <div class="min-h-screen bg-black text-white relative">
-    <!-- Background Grid - fixed position -->
-    <div class="fixed inset-0 z-0 dot-grid opacity-20 pointer-events-none"></div>
-
-    <!-- Hero Section -->
-    <section ref="heroSection" class="py-24 px-4 text-center relative">
-      <div class="max-w-4xl mx-auto">
-        <!-- L top left -->
-        <div class="absolute top-20 left-20 md:left-24 l-decoration"></div>
-
-        <!-- L bottom right reversed -->
-        <div class="absolute bottom-20 right-20 md:bottom-24 md:right-24 l-decoration-reversed"></div>
-
-        <h1 ref="pageTitle" class="text-4xl md:text-5xl font-bold mb-4 transform translate-y-10 opacity-0">
-          À propos de moi
-        </h1>
-        <p ref="pageDesc" class="text-xl text-gray-400 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-          Vous voulez en savoir plus sur moi? Vous êtes au bon endroit
-        </p>
-      </div>
-    </section>
+  <div class="min-h-screen text-white relative">
+    <PageHero eyebrow="01 — À propos" title="À propos de moi"
+      description="Vous voulez en savoir plus sur moi? Vous êtes au bon endroit" />
 
     <!-- About Section -->
     <section ref="aboutSection" class="max-w-4xl mx-auto px-4 py-12">
@@ -39,6 +21,11 @@
               <AboutIntro />
             </BaseCard>
           </div>
+
+          <!-- Currently -->
+          <div ref="currentlyContent" class="mt-10 transform translate-y-20 opacity-0">
+            <CurrentlySection />
+          </div>
         </div>
 
         <!-- Social Links -->
@@ -49,7 +36,7 @@
     </section>
 
     <!-- Technologies Section -->
-    <section ref="techSection" class="py-16 px-4 bg-linear-to-b from-black to-gray-900 relative">
+    <section ref="techSection" class="section-glow py-16 px-4 relative">
       <div class="max-w-6xl mx-auto">
         <div class="relative flex flex-col items-center mb-14">
           <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
@@ -62,13 +49,8 @@
           Les compétences que je possède et utilise régulièrement
         </p>
 
-        <div ref="techGrid"
-          class="grid grid-cols-2 md:grid-cols-3 gap-4 transform translate-y-20 opacity-0 max-w-3xl mx-auto">
-          <div v-for="tech in technologies" :key="tech.name"
-            class="tech-item bg-gray-800 py-2 px-3 flex items-center transition-all duration-300 border-l-2 border-transparent hover:border-yellow-400 transform hover:-translate-y-1 hover:shadow-lg">
-            <Icon :icon="tech.icon" width="24" height="24" class="mr-3 shrink-0 text-yellow-400" />
-            <span class="font-medium text-sm whitespace-nowrap">{{ tech.name }}</span>
-          </div>
+        <div ref="techGrid" class="transform translate-y-20 opacity-0 max-w-4xl mx-auto">
+          <SkillsGrid />
         </div>
       </div>
     </section>
@@ -79,36 +61,33 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue';
 import { useAnimations } from '@/composables/useAnimations';
-import { technologies } from '@/data/technologies';
+import PageHero from '@/components/shared/PageHero.vue';
+import SkillsGrid from '@/components/shared/SkillsGrid.vue';
 import BaseCard from '@/components/shared/BaseCard.vue';
 import AboutIntro from '@/components/about/AboutIntro.vue';
+import CurrentlySection from '@/components/about/CurrentlySection.vue';
 import SocialLinks from '@/components/contact/SocialLinks.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
 
 export default {
   name: 'AboutView',
   components: {
-    Icon,
+    PageHero,
+    SkillsGrid,
     BaseCard,
     AboutIntro,
+    CurrentlySection,
     SocialLinks,
     CallToActionSection
   },
-  data() {
-    return {
-      technologies
-    }
-  },
   mounted() {
-    const { animateHero, animateOnScroll, animateSection } = useAnimations();
-
-    animateHero([this.$refs.pageTitle, this.$refs.pageDesc]);
+    const { animateOnScroll, animateSection } = useAnimations();
 
     // About section animations
     animateOnScroll(this.$refs.aboutContent, this.$refs.aboutSection, { ease: 'power2.out' });
     animateOnScroll(this.$refs.socialContent, this.$refs.aboutSection, { ease: 'power2.out', delay: 0.2 });
+    animateOnScroll(this.$refs.currentlyContent, this.$refs.currentlyContent, { ease: 'power2.out' });
 
     // Tech section animations
     animateSection(this.$refs.techSection, {
@@ -118,19 +97,7 @@ export default {
     });
 
     // Tech items staggered animation
-    animateOnScroll('.tech-item', this.$refs.techGrid, { stagger: 0.2 });
+    animateOnScroll('.tech-item', this.$refs.techGrid, { stagger: 0.05, duration: 0.5 });
   }
 }
 </script>
-
-<style scoped>
-/* Component-specific styles only */
-.tech-item {
-  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tech-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(247, 222, 61, 0.1);
-}
-</style>

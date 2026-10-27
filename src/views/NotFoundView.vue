@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+  <div class="min-h-screen text-white flex items-center justify-center px-4">
     <div class="max-w-2xl text-center">
       <div class="mb-8">
         <h1 class="text-9xl font-bold text-yellow-400 mb-4">404</h1>
@@ -76,12 +76,6 @@ export default {
           path: '/about',
           icon: 'mdi:account',
           description: 'En savoir plus sur moi'
-        },
-        {
-          name: 'Veille',
-          path: '/veille',
-          icon: 'mdi:rss',
-          description: 'Ma veille technologique'
         }
       ]
     }
