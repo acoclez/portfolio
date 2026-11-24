@@ -10,12 +10,12 @@
 
             <div class="relative flex flex-col items-center mb-14">
                 <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
-                    Compétences
+                    {{ $t('skills.title') }}
                 </h2>
             </div>
             <p ref="techDesc"
                 class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-                Les compétences que je possède et utilise régulièrement
+                {{ $t('skills.description') }}
             </p>
 
             <div ref="techGrid" class="transform translate-y-20 opacity-0 max-w-4xl mx-auto">
@@ -23,10 +23,10 @@
             </div>
 
             <div ref="techCta" class="text-center mt-16 transform translate-y-10 opacity-0">
-                <router-link to="/about"
+                <router-link :to="$lp('/about')"
                     class="inline-flex items-center px-6 py-3 rounded-none bg-gray-800 hover:bg-gray-700 text-white font-bold transition border-b-2 border-yellow-400 relative">
                     <Icon icon="mdi:circle-outline" class="w-5 h-5 mr-2 text-yellow-400" />
-                    En savoir plus sur moi
+                    {{ $t('skills.cta') }}
                 </router-link>
             </div>
         </div>

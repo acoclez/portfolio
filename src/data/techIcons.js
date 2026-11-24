@@ -43,6 +43,8 @@ const iconMap = {
   'react native': 'mdi:react',
   'electron': 'mdi:electron-framework',
   'tauri': 'simple-icons:tauri',
+  'npcap': 'mdi:lan-connect',
+  'libpcap / npcap': 'mdi:lan-connect',
 
   // Tools & Others
   'docker': 'mdi:docker',

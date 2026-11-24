@@ -3,6 +3,7 @@ import { addCollection } from '@iconify/vue'
 import './assets/css/main.css'
 import App from './App.vue'
 import router from './router'
+import i18n from './i18n'
 import icons from './data/icons.json'
 
 // Icons ship with the site (see scripts/build-icons.mjs) instead of being fetched from the Iconify API
@@ -19,6 +20,7 @@ app.config.errorHandler = (err, instance, info) => {
   console.error('Info:', info)
 }
 
+app.use(i18n)
 app.use(router)
 app.mount('#app')
 

@@ -39,7 +39,7 @@
           :to="detailRoute"
           class="inline-block px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition transform hover:-translate-y-1">
           <Icon icon="mdi:arrow-right" class="inline-block mr-1" width="18" />
-          Voir le projet
+          {{ $t('projects.view') }}
         </router-link>
         <a
           v-if="project.demo"
@@ -47,7 +47,7 @@
           target="_blank"
           class="inline-block px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none transition border-b-2 border-yellow-400 transform hover:-translate-y-1">
           <Icon icon="mdi:web" class="inline-block mr-1" width="18" />
-          Site
+          {{ $t('projects.site') }}
         </a>
         <a
           v-if="project.github"
@@ -55,7 +55,7 @@
           target="_blank"
           class="inline-block px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none transition border-b-2 border-yellow-400 transform hover:-translate-y-1">
           <Icon icon="mdi:github" class="inline-block mr-1" width="18" />
-          Code
+          {{ $t('projects.code') }}
         </a>
       </div>
     </div>
@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     detailRoute() {
-      return { name: 'project', params: { slug: this.project.slug } };
+      return this.$lp(`/projects/${this.project.slug}`);
     }
   },
   methods: {

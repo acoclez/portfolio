@@ -10,23 +10,23 @@
 
             <div class="relative flex flex-col items-center mb-14">
                 <h2 ref="projectsTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
-                    Projets</h2>
+                    {{ $t('projects.title') }}</h2>
             </div>
 
             <p ref="projectsDesc"
                 class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-                Projets sur lesquels j'ai pu collaborer
+                {{ $t('projects.description') }}
             </p>
 
             <div ref="projectCard" class="grid grid-cols-1 md:grid-cols-2 gap-8 transform translate-y-20 opacity-0">
-                <ProjectCard v-for="project in featuredProjects" :key="project.title" :project="project" />
+                <ProjectCard v-for="project in featuredProjects" :key="project.slug" :project="project" />
             </div>
 
             <div ref="projectsCta" class="text-center mt-16 transform translate-y-10 opacity-0">
-                <router-link to="/projects"
+                <router-link :to="$lp('/projects')"
                     class="inline-flex items-center px-6 py-3 rounded-none bg-gray-800 hover:bg-gray-700 text-white font-bold transition border-b-2 border-yellow-400">
                     <Icon icon="mdi:circle-outline" class="w-5 h-5 mr-2 text-yellow-400" />
-                    Voir tous les projets
+                    {{ $t('projects.all') }}
                 </router-link>
             </div>
         </div>
@@ -36,7 +36,7 @@
 <script>
 import { Icon } from '@iconify/vue';
 import ProjectCard from '@/components/projects/ProjectCard.vue';
-import { projects } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 import { useAnimations } from '@/composables/useAnimations';
 
 export default {
@@ -45,9 +45,9 @@ export default {
         Icon,
         ProjectCard
     },
-    data() {
-        return {
-            featuredProjects: projects.filter(project => project.featured)
+    computed: {
+        featuredProjects() {
+            return getProjects(this.$i18n.locale).filter(project => project.featured);
         }
     },
     mounted() {

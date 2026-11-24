@@ -8,7 +8,8 @@
       <main class="grow pt-24">
         <router-view v-slot="{ Component }">
           <Transition name="page" mode="out-in">
-            <component :is="Component" :key="$route.path" />
+            <!-- Keyed without the language prefix: switching language updates the page in place -->
+            <component :is="Component" :key="pageKey" />
           </Transition>
         </router-view>
       </main>
@@ -21,6 +22,7 @@
 import ErrorBoundary from '@/components/shared/ErrorBoundary.vue'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
+import { stripLocale } from '@/i18n'
 
 export default {
   name: 'App',
@@ -28,6 +30,11 @@ export default {
     ErrorBoundary,
     TheHeader,
     TheFooter
+  },
+  computed: {
+    pageKey() {
+      return stripLocale(this.$route.path)
+    }
   }
 }
 </script>

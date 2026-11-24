@@ -1,14 +1,14 @@
 <!-- src/views/ProjectsView.vue -->
 <template>
   <div class="min-h-screen text-white relative">
-    <PageHero eyebrow="02 — Projets" title="Projets" description="Projets sur lesquels j'ai pu collaborer" />
+    <PageHero :eyebrow="$t('projects.eyebrow')" :title="$t('projects.title')" :description="$t('projects.description')" />
 
     <!-- Projects Section -->
     <section ref="projectsSection" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <ProjectCard
           v-for="(project, index) in projects"
-          :key="project.title"
+          :key="project.slug"
           :ref="el => { if (el) projectCards[index] = el }"
           :project="project"
           class="opacity-0 transform translate-y-20"
@@ -26,7 +26,7 @@ import { useAnimations } from '@/composables/useAnimations';
 import PageHero from '@/components/shared/PageHero.vue';
 import ProjectCard from '@/components/projects/ProjectCard.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
-import { projects } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 
 export default {
   name: 'ProjectsView',
@@ -37,8 +37,12 @@ export default {
   },
   data() {
     return {
-      projectCards: [],
-      projects
+      projectCards: []
+    }
+  },
+  computed: {
+    projects() {
+      return getProjects(this.$i18n.locale);
     }
   },
   mounted() {

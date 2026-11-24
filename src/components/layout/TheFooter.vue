@@ -4,17 +4,17 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
       <p class="font-semibold">
         Antoine Coclez
-        <span class="text-gray-400 font-normal"> — Développeur Web</span>
+        <span class="text-gray-400 font-normal"> — {{ $t('footer.role') }}</span>
       </p>
 
       <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-        <li v-for="item in links" :key="item.path">
+        <li v-for="item in links" :key="item.key">
           <router-link class="text-gray-400 hover:text-yellow-400 transition-standard" :to="item.path">
             {{ item.name }}
           </router-link>
         </li>
         <li>
-          <a class="text-gray-400 hover:text-yellow-400 transition-standard" href="/assets/CV_Antoine_COCLEZ.pdf" target="_blank">CV</a>
+          <a class="text-gray-400 hover:text-yellow-400 transition-standard" :href="$t('cv.href')" target="_blank">{{ $t('cv.short') }}</a>
         </li>
       </ul>
 
@@ -30,12 +30,12 @@
 <script>
 export default {
   name: 'TheFooter',
-  data() {
-    return {
-      links: [
-        { name: 'Accueil', path: '/' },
-        { name: 'A propos', path: '/about' },
-        { name: 'Projets', path: '/projects' }
+  computed: {
+    links() {
+      return [
+        { key: 'home', name: this.$t('nav.home'), path: this.$lp('/') },
+        { key: 'about', name: this.$t('nav.about'), path: this.$lp('/about') },
+        { key: 'projects', name: this.$t('nav.projects'), path: this.$lp('/projects') }
       ]
     }
   }

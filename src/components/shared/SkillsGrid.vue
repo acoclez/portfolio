@@ -1,10 +1,10 @@
 <!-- src/components/shared/SkillsGrid.vue -->
 <template>
   <div class="space-y-10">
-    <div v-for="group in skillGroups" :key="group.name">
+    <div v-for="group in skillGroups" :key="group.key">
       <h3 class="flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-yellow-400 mb-4">
         <Icon :icon="group.icon" width="18" height="18" />
-        {{ group.name }}
+        {{ $t(`skills.groups.${group.key}`) }}
         <span class="grow h-px bg-gray-800"></span>
       </h3>
 

@@ -1,8 +1,7 @@
 <!-- src/views/AboutView.vue -->
 <template>
   <div class="min-h-screen text-white relative">
-    <PageHero eyebrow="01 — À propos" title="À propos de moi"
-      description="Vous voulez en savoir plus sur moi? Vous êtes au bon endroit" />
+    <PageHero :eyebrow="$t('about.eyebrow')" :title="$t('about.title')" :description="$t('about.description')" />
 
     <!-- About Section -->
     <section ref="aboutSection" class="max-w-4xl mx-auto px-4 py-12">
@@ -26,6 +25,11 @@
           <div ref="currentlyContent" class="mt-10 transform translate-y-20 opacity-0">
             <CurrentlySection />
           </div>
+
+          <!-- Education -->
+          <div ref="educationContent" class="mt-10 transform translate-y-20 opacity-0">
+            <EducationSection />
+          </div>
         </div>
 
         <!-- Social Links -->
@@ -40,13 +44,13 @@
       <div class="max-w-6xl mx-auto">
         <div class="relative flex flex-col items-center mb-14">
           <h2 ref="techTitle" class="text-3xl font-bold text-center mb-6 transform translate-y-10 opacity-0">
-            Compétences
+            {{ $t('skills.title') }}
           </h2>
         </div>
 
         <p ref="techDesc"
           class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto transform translate-y-10 opacity-0">
-          Les compétences que je possède et utilise régulièrement
+          {{ $t('skills.description') }}
         </p>
 
         <div ref="techGrid" class="transform translate-y-20 opacity-0 max-w-4xl mx-auto">
@@ -67,6 +71,7 @@ import SkillsGrid from '@/components/shared/SkillsGrid.vue';
 import BaseCard from '@/components/shared/BaseCard.vue';
 import AboutIntro from '@/components/about/AboutIntro.vue';
 import CurrentlySection from '@/components/about/CurrentlySection.vue';
+import EducationSection from '@/components/about/EducationSection.vue';
 import SocialLinks from '@/components/contact/SocialLinks.vue';
 import CallToActionSection from '@/components/home/CallToActionSection.vue';
 
@@ -78,6 +83,7 @@ export default {
     BaseCard,
     AboutIntro,
     CurrentlySection,
+    EducationSection,
     SocialLinks,
     CallToActionSection
   },
@@ -88,6 +94,7 @@ export default {
     animateOnScroll(this.$refs.aboutContent, this.$refs.aboutSection, { ease: 'power2.out' });
     animateOnScroll(this.$refs.socialContent, this.$refs.aboutSection, { ease: 'power2.out', delay: 0.2 });
     animateOnScroll(this.$refs.currentlyContent, this.$refs.currentlyContent, { ease: 'power2.out' });
+    animateOnScroll(this.$refs.educationContent, this.$refs.educationContent, { ease: 'power2.out' });
 
     // Tech section animations
     animateSection(this.$refs.techSection, {

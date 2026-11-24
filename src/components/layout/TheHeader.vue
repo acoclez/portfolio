@@ -15,42 +15,78 @@
         <span class="nav-marker-corner nav-marker-corner--bottom-right"></span>
       </div>
 
-      <router-link v-for="item in navItems" :key="item.path" :to="item.path" :data-path="item.path"
+      <router-link v-for="item in navItems" :key="item.key" :to="item.path" :data-path="item.path"
         class="text-gray-400 hover:text-yellow-400 transition-standard relative py-2 px-2 md:px-3 text-sm md:text-base font-medium whitespace-nowrap"
         :class="{ 'text-yellow-400': isActive(item.path) }">
         {{ item.name }}
       </router-link>
+
+      <!-- Language switch: the current language is highlighted, the other one is a link to the same page -->
+      <div class="flex items-center gap-1.5 pl-3 md:pl-6 ml-1 md:ml-0 border-l border-gray-700 text-xs md:text-sm font-semibold tracking-widest"
+        role="group" :aria-label="$t('nav.language')">
+        <template v-for="(locale, index) in locales" :key="locale">
+          <span v-if="index > 0" class="text-gray-700" aria-hidden="true">/</span>
+          <span v-if="locale === $i18n.locale" class="text-yellow-400 py-2" aria-current="true">{{ locale.toUpperCase() }}</span>
+          <router-link v-else :to="switchPath(locale)" :hreflang="locale" :lang="locale"
+            :aria-label="$t(`nav.switchTo.${locale}`)" :title="$t(`nav.switchTo.${locale}`)"
+            class="text-gray-400 hover:text-yellow-400 transition-standard py-2" @click="remember(locale)">
+            {{ locale.toUpperCase() }}
+          </router-link>
+        </template>
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
 import { gsap } from 'gsap';
+import { LOCALES, localePath, rememberLocale, stripLocale } from '@/i18n';
 
 export default {
   name: 'TheHeader',
   data() {
     return {
-      navItems: [
-        { name: 'Accueil', path: '/' },
-        { name: 'A propos', path: '/about' },
-        { name: 'Projets', path: '/projects' }
+      locales: LOCALES
+    }
+  },
+  computed: {
+    navItems() {
+      return [
+        { key: 'home', name: this.$t('nav.home'), path: this.$lp('/') },
+        { key: 'about', name: this.$t('nav.about'), path: this.$lp('/about') },
+        { key: 'projects', name: this.$t('nav.projects'), path: this.$lp('/projects') }
       ]
     }
   },
   watch: {
-    '$route.path'() {
-      this.moveMarker(true);
+    '$route.path'(path, previousPath) {
+      // Same page in another language: the marker only adjusts to the relabelled link, it doesn't spin
+      const languageSwitch = stripLocale(path) === stripLocale(previousPath);
+
+      // Wait for the links to re-render: their paths and labels change with the language
+      this.$nextTick(() => this.moveMarker(languageSwitch ? 'adjust' : 'slide'));
     }
   },
   methods: {
     isActive(path) {
       return this.$route.path === path
     },
+    // The page being viewed, in another language
+    switchPath(locale) {
+      return {
+        path: localePath(stripLocale(this.$route.path), locale),
+        query: this.$route.query,
+        hash: this.$route.hash
+      }
+    },
+    remember(locale) {
+      rememberLocale(locale);
+    },
     activeLink() {
       return this.$el.querySelector(`a[data-path="${this.$route.path}"]`);
     },
-    // Place the marker over the active link; animated when switching pages, instant otherwise
+    // Place the marker over the active link: 'slide' spins it over to a new page, 'adjust' resizes it
+    // in place after a language switch, anything else sets it instantly
     moveMarker(animate) {
       const link = this.activeLink();
       const marker = this.$refs.marker;
@@ -68,7 +104,13 @@ export default {
         opacity: 1
       };
 
-      if (!animate) {
+      if (animate === 'adjust') {
+        gsap.to(marker, { ...target, duration: 0.25, ease: 'power2.out' });
+        return;
+      }
+
+      if (animate !== 'slide') {
+        gsap.killTweensOf(marker, 'x,y,width,height,opacity');
         gsap.set(marker, target);
         return;
       }

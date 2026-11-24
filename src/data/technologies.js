@@ -1,7 +1,8 @@
 // src/data/technologies.js
+// Group labels are translated in src/i18n (skills.groups.<key>)
 export const skillGroups = [
   {
-    name: 'Backend',
+    key: 'backend',
     icon: 'mdi:server',
     items: [
       { name: 'PHP', icon: 'mdi:language-php' },
@@ -13,7 +14,7 @@ export const skillGroups = [
     ]
   },
   {
-    name: 'Frontend',
+    key: 'frontend',
     icon: 'mdi:monitor',
     items: [
       { name: 'HTML', icon: 'mdi:language-html5' },
@@ -21,14 +22,13 @@ export const skillGroups = [
       { name: 'JavaScript', icon: 'mdi:language-javascript' },
       { name: 'TypeScript', icon: 'mdi:language-typescript' },
       { name: 'Vue.js', icon: 'mdi:vuejs' },
-      { name: 'Nuxt.js', icon: 'mdi:nuxt' },
       { name: 'Svelte', icon: 'simple-icons:svelte' },
       { name: 'SvelteKit', icon: 'simple-icons:svelte' },
       { name: 'Tailwind', icon: 'mdi:tailwind' }
     ]
   },
   {
-    name: 'Outils',
+    key: 'tools',
     icon: 'mdi:tools',
     items: [
       { name: 'Git', icon: 'mdi:git' },

@@ -2,7 +2,7 @@
 <template>
     <div class="w-full h-full">
         <div class="h-full flex flex-col bg-gray-900 p-8 rounded-none shadow-2xl border-t-4 border-yellow-400 relative">
-            <h2 class="text-2xl font-bold mb-6">Retrouvez-moi sur</h2>
+            <h2 class="text-2xl font-bold mb-6">{{ $t('about.social.title') }}</h2>
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <a v-for="(social, index) in socialLinks" :key="index" :href="social.url" target="_blank" :aria-label="social.name"
                     class="social-link transform transition hover:scale-110 bg-gray-800 p-4 rounded-full hover:bg-gray-700 hover:shadow-lg hover:shadow-yellow-900/10 flex items-center justify-center">
@@ -12,7 +12,7 @@
 
             <div class="mt-8">
                 <p class="text-gray-300">
-                    N'hésitez pas à me suivre pour découvrir mes projets et mes contributions au monde du développement web.
+                    {{ $t('about.social.text') }}
                 </p>
 
                 <div class="flex flex-col space-y-4 mt-8">
@@ -21,18 +21,22 @@
                         <a href="mailto:contact@acoclez.dev" class="text-gray-300 hover:text-yellow-400 transition-standard break-all">contact@acoclez.dev</a>
                     </div>
                     <div class="contact-item flex items-center transform">
-                        <Icon icon="mdi:map-marker" class="text-yellow-400 mr-3" width="24" />
-                        <span class="text-gray-300">Agen, France</span>
+                        <Icon icon="mdi:map-marker" class="text-yellow-400 mr-3 shrink-0" width="24" />
+                        <span class="text-gray-300">{{ $t('about.social.location') }}</span>
+                    </div>
+                    <div class="contact-item flex items-center transform">
+                        <Icon icon="mdi:translate" class="text-yellow-400 mr-3 shrink-0" width="24" />
+                        <span class="text-gray-300">{{ $t('about.social.languages') }}</span>
                     </div>
                 </div>
             </div>
 
             <!-- CV Download Button, pinned to the bottom so the card can stretch to the row height -->
             <div class="mt-auto pt-8 border-t border-gray-800">
-                <a href="/assets/CV_Antoine_COCLEZ.pdf" target="_blank"
+                <a :href="$t('cv.href')" target="_blank"
                     class="flex items-center justify-center w-full py-3 px-6 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none border-b-2 border-yellow-400 transition transform hover:-translate-y-1 group">
                     <Icon icon="mdi:file-document" class="mr-2 text-yellow-400 group-hover:animate-bounce" width="24" />
-                    Télécharger mon CV
+                    {{ $t('cv.download') }}
                 </a>
             </div>
         </div>

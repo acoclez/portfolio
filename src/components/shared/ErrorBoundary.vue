@@ -5,10 +5,10 @@
         <Icon icon="mdi:alert-circle" class="text-red-500 mx-auto" width="80" height="80" />
       </div>
       
-      <h1 class="text-4xl font-bold mb-4">Oups! Quelque chose s'est mal passé</h1>
+      <h1 class="text-4xl font-bold mb-4">{{ $t('error.title') }}</h1>
       
       <p class="text-gray-400 mb-8">
-        Une erreur inattendue s'est produite. Ne vous inquiétez pas, vos données sont en sécurité.
+        {{ $t('error.text') }}
       </p>
       
       <div v-if="isDev" class="bg-gray-900 p-4 mb-8 text-left">
@@ -22,7 +22,7 @@
           class="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-none transition"
         >
           <Icon icon="mdi:refresh" class="inline mr-2" width="20" />
-          Recharger la page
+          {{ $t('error.reload') }}
         </button>
         
         <button 
@@ -30,7 +30,7 @@
           class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-none transition border-2 border-yellow-400"
         >
           <Icon icon="mdi:home" class="inline mr-2" width="20" />
-          Retour à l'accueil
+          {{ $t('error.home') }}
         </button>
       </div>
     </div>
@@ -76,7 +76,7 @@ export default {
     },
     goHome() {
       this.hasError = false
-      this.$router.push('/')
+      this.$router.push(this.$lp('/'))
     }
   }
 }

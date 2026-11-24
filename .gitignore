@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # Cloudflare Workers
 .wrangler
+
+# Agents
+.claude
